@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.underline-effect a {
+  position: relative;
+  display: inline-block;
+}
+
+.underline-effect a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  margin-top: 1px; /* Modificato da 5px a 2px */
+  right: 0;
+  background: #0d98b8;
+  transition: width 0.3s ease;
+}
+
+.underline-effect a:hover::after {
+  width: 100%;
+  left: 0;
+  right: auto;
+}
