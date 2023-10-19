@@ -22,7 +22,7 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex lg:flex-grow items-center">
-          <div className="flex-grow">
+          <div className="flex-grow z-50">
             <Navigation isDropdownOpen={isDropdownOpen} toggleDropdown={toggleDropdown} />
           </div>
         </div>
@@ -48,7 +48,7 @@ const Header = () => {
 
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
-        <div className="bg-black bg-opacity-50 absolute inset-x-0 top-full lg:hidden">
+        <div className="bg-black bg-opacity-50 absolute inset-x-0 top-full lg:hidden z-50">
           <Navigation isDropdownOpen={isDropdownOpen} toggleDropdown={toggleDropdown} />
           <div className="lg:hidden flex space-x-4 mr-5 border-b lg:border-b-0 border-gray-500 cursor-pointer transition-all hover:font-bold pt-3 pb-2 pl-4">
             {social.map((item) => (

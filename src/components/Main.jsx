@@ -10,7 +10,7 @@ const Main = () => {
       <section className="relative h-screen flex items-center justify-center text-center">
         <img src={hero} alt="Background hero section" className="absolute inset-0 w-full h-full object-cover -z-50" />
         <div className="absolute inset-0 bg-black opacity-25"></div>
-        <div className="relative z-10">
+        <div className="relative">
           <h2 className="text-4xl font-bold text-white mb-4">BREEDING CONTEA MARULLO</h2>
           <h2 className="text-xl text-white mb-4"> SIBERIAN HUSKY</h2>
           <p className="text-white">
