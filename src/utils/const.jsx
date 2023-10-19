@@ -23,3 +23,8 @@ export const social = [
     href: "https://www.instagram.com/petgroomingdimichelemarullo/",
   },
 ];
+
+export const translations = [
+  { id: 1, name: "EN", href: "#" },
+  { id: 2, name: "IT", href: "#" },
+];

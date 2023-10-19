@@ -3,6 +3,7 @@ import useOurDogs from "../hooks/useOurDogs";
 import { navigation } from "../utils/const";
 import Female from "./Female";
 import Male from "./Male";
+import { social } from "../utils/const";
 
 const Navigation = ({ isDropdownOpen, toggleDropdown }) => {
   const windowWidth = useOurDogs();
@@ -38,6 +39,13 @@ const Navigation = ({ isDropdownOpen, toggleDropdown }) => {
                 )}
           </li>
         ))}
+        <div className="hidden lg:flex space-x-4 mr-10 cursor-pointer transition-all">
+          {social.map((item) => (
+            <a key={item.id} href={item.href} className={`${item.icon}-icon block`}>
+              {item.name}
+            </a>
+          ))}
+        </div>
       </ul>
     </nav>
   );

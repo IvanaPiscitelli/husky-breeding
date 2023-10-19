@@ -40,14 +40,6 @@ const Header = () => {
             </svg>
           </button>
         </div>
-
-        <div className="hidden lg:flex space-x-4 mr-10 cursor-pointer transition-all">
-          {social.map((item) => (
-            <a key={item.id} href={item.href} className={`${item.icon}-icon block`}>
-              {item.name}
-            </a>
-          ))}
-        </div>
       </div>
 
       {/* Mobile Navigation Menu */}
