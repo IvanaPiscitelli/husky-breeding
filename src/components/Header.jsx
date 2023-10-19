@@ -9,7 +9,7 @@ const Header = () => {
     <header className="bg-black bg-opacity-20 max-[959px]:p-2 p-1 z-10 absolute w-full text-white">
       <div className="flex justify-between items-center ">
         {/* Logo Section */}
-        <div className="logo ml-5">
+        <div className="logo ml-10">
           <a href="/" className="text-2xl font-bold">
             Logo
           </a>
@@ -37,9 +37,11 @@ const Header = () => {
           </button>
         </div>
 
-        <div className="hidden lg:flex space-x-4 mr-5 list-none">
+        <div className="hidden lg:flex space-x-4 mr-10">
           {social.map((item) => (
-            <li key={item.id}>{item.name}</li>
+            <span key={item.id} className="block">
+              {item.name}
+            </span>
           ))}
         </div>
       </div>

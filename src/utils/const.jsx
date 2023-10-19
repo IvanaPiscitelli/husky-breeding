@@ -13,11 +13,9 @@ export const navigation = [
   { name: "Home", href: "#" },
   { name: "About The Breed", href: "#" },
   { name: "Our Dogs", href: "#" },
-  // { name: "Facebook", href: "#" },
-  // { name: "Instagram", href: "#" },
 ];
 
 export const social = [
   { id: 1, name: <BsFacebook size={25} />, href: "#" },
-  { id: 2, name: <PiInstagramLogoFill size={28} />, href: "#" },
+  { id: 2, name: <PiInstagramLogoFill size={29} />, href: "#" },
 ];
