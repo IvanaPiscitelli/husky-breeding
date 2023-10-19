@@ -39,9 +39,9 @@ const Header = () => {
 
         <div className="hidden lg:flex space-x-4 mr-10">
           {social.map((item) => (
-            <span key={item.id} className="block">
+            <a key={item.id} href={item.href} className="block">
               {item.name}
-            </span>
+            </a>
           ))}
         </div>
       </div>
@@ -52,9 +52,9 @@ const Header = () => {
           <Navigation />
           <div className="lg:hidden flex space-x-4 mr-5 list-none underline-effect border-b lg:border-b-0 border-gray-500 cursor-pointer transition-all hover:font-bold pt-3 pb-2 pl-3">
             {social.map((item) => (
-              <span key={item.id} className="block px-1">
+              <a key={item.id} href={item.href} className="block px-1">
                 {item.name}
-              </span>
+              </a>
             ))}
           </div>
         </div>
