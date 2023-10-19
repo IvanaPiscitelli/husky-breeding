@@ -16,6 +16,11 @@ export const navigation = [
 ];
 
 export const social = [
-  { id: 1, name: <BsFacebook size={25} />, href: "https://www.facebook.com/conteamarullo" },
-  { id: 2, name: <PiInstagramLogoFill size={29} />, href: "https://www.instagram.com/petgroomingdimichelemarullo/" },
+  { id: 1, name: <BsFacebook size={25} />, icon: "facebook", href: "https://www.facebook.com/conteamarullo" },
+  {
+    id: 2,
+    name: <PiInstagramLogoFill size={29} />,
+    icon: "instagram",
+    href: "https://www.instagram.com/petgroomingdimichelemarullo/",
+  },
 ];

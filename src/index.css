@@ -24,3 +24,12 @@
   left: 0;
   right: auto;
 }
+
+/* Social */
+.facebook-icon:hover {
+  color: #1877f2; /* Colore originale di Facebook */
+}
+
+.instagram-icon:hover {
+  color: #c13584; /* Uno dei colori originali di Instagram */
+}
