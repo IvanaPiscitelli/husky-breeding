@@ -50,11 +50,11 @@ const Header = () => {
       {isMenuOpen && (
         <div className="bg-black bg-opacity-50 absolute inset-x-0 top-full lg:hidden">
           <Navigation />
-          <div className="lg:hidden flex space-x-4 mr-5 list-none">
-            {/* Questo div conterrà le icone di Facebook e Instagram */}
-
+          <div className="lg:hidden flex space-x-4 mr-5 list-none underline-effect border-b lg:border-b-0 border-gray-500 cursor-pointer transition-all hover:font-bold pt-3 pb-2 pl-3">
             {social.map((item) => (
-              <span key={item.id}>{item.name}</span>
+              <span key={item.id} className="block px-1">
+                {item.name}
+              </span>
             ))}
           </div>
         </div>
@@ -64,3 +64,7 @@ const Header = () => {
 };
 
 export default Header;
+
+// padding-top: 0.6em;
+// padding-left: 0.7em;
+// padding-bottom: 0.1em;
