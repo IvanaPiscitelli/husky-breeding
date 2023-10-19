@@ -4,10 +4,14 @@ import { social } from "../utils/const";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const toggleDropdown = () => {
+    setIsDropdownOpen((prevState) => !prevState);
+  };
 
   return (
     <header className="bg-black bg-opacity-20 max-[959px]:p-2 p-1 z-10 absolute w-full text-white">
-      <div className="flex justify-between items-center ">
+      <div className="flex justify-between items-center">
         {/* Logo Section */}
         <div className="logo ml-10">
           <a href="/" className="text-2xl font-bold">
@@ -18,7 +22,7 @@ const Header = () => {
         {/* Desktop Navigation */}
         <div className="hidden lg:flex lg:flex-grow items-center">
           <div className="flex-grow">
-            <Navigation />
+            <Navigation isDropdownOpen={isDropdownOpen} toggleDropdown={toggleDropdown} />
           </div>
         </div>
 
@@ -37,7 +41,7 @@ const Header = () => {
           </button>
         </div>
 
-        <div className="hidden lg:flex space-x-4 mr-10 cursor-pointer transition-all hover:font-bold">
+        <div className="hidden lg:flex space-x-4 mr-10 cursor-pointer transition-all">
           {social.map((item) => (
             <a key={item.id} href={item.href} className={`${item.icon}-icon block`}>
               {item.name}
@@ -49,7 +53,7 @@ const Header = () => {
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
         <div className="bg-black bg-opacity-50 absolute inset-x-0 top-full lg:hidden">
-          <Navigation />
+          <Navigation isDropdownOpen={isDropdownOpen} toggleDropdown={toggleDropdown} />
           <div className="lg:hidden flex space-x-4 mr-5 border-b lg:border-b-0 border-gray-500 cursor-pointer transition-all hover:font-bold pt-3 pb-2 pl-4">
             {social.map((item) => (
               <a key={item.id} href={item.href} className={`${item.icon}-icon block`}>

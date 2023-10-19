@@ -35,3 +35,46 @@
   background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
   border-radius: 20%;
 }
+
+.arrow {
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-left: 5px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.arrow.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.arrow.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.2);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  margin-top: 5px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.dropdown-menu div {
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+.dropdown-menu div:hover {
+  background-color: gray;
+}
