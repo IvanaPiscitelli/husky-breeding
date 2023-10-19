@@ -10,7 +10,7 @@ const Toggle = () => {
     <div className="relative w-20 mr-10">
       <label className="flex items-center cursor-pointer">
         <input type="checkbox" id="toggle" className="sr-only" onChange={toggle} checked={isToggle} />
-        <div className="block bg-gray-600 w-full h-8 rounded-full">
+        <div className="block bg-[#0d98b8] w-full h-8 rounded-full">
           <div
             className={`absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition ${
               isToggle ? "transform translate-x-12" : ""

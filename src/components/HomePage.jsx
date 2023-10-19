@@ -7,11 +7,7 @@ const HomePage = () => {
     <div className="relative">
       <Header />
       <Main />
-
-      {/* Footer Section */}
-      <footer className="py-4">
-        <Footer />
-      </footer>
+      <Footer />
     </div>
   );
 };

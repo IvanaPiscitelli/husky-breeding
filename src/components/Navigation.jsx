@@ -11,13 +11,13 @@ const Navigation = ({ isDropdownOpen, toggleDropdown }) => {
   return (
     <nav className="mr-4 w-full">
       <ul className="flex justify-center h-full flex-col lg:flex-row space-y-4 lg:space-y-0 lg:m-2">
-        {navigation.map((item, index) => (
+        {navigation.map((item) => (
           <li
-            key={item.name}
+            key={item.id}
             onClick={item.name === "Our Dogs" ? toggleDropdown : null}
             className="underline-effect border-b lg:border-b-0 border-gray-500 cursor-pointer transition-all hover:font-bold pt-1"
           >
-            <a href={item.href} className={`${index === 0 ? "mt-5 lg:mt-0" : ""} block px-4`}>
+            <a href={item.href} className={`${item.id === 1 ? "mt-5 lg:mt-0" : ""} block px-4`}>
               {item.name}
             </a>
             {item.name === "Our Dogs" && <span className="lg:hidden">{isDropdownOpen ? "−" : "+"}</span>}

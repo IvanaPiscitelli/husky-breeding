@@ -9,9 +9,9 @@ export const imgHome = [
   { id: 5, img: imgC },
 ];
 export const navigation = [
-  { name: "Home", href: "#" },
-  { name: "About The Breed", href: "#" },
-  { name: "Our Dogs", href: "#" },
+  { id: 1, name: "Home", href: "#" },
+  { id: 2, name: "About The Breed", href: "#" },
+  { id: 3, name: "Our Dogs", href: "#" },
 ];
 
 export const social = [
@@ -27,4 +27,10 @@ export const social = [
 export const translations = [
   { id: 1, name: "EN", href: "#" },
   { id: 2, name: "IT", href: "#" },
+];
+
+export const recognitions = [
+  { id: 1, name: "Enci", img: "" },
+  { id: 2, name: "Enci", img: "" },
+  { id: 3, name: "Enci", img: "" },
 ];
