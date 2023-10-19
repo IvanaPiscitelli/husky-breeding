@@ -2,8 +2,8 @@ import { navigation, recognitions, social } from "../utils/const";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white p-6">
-      <div className="flex flex-col md:flex-row items-center md:items-start justify-around text-center">
+    <footer className="bg-gray-800 text-white px-6 py-16">
+      <div className="flex flex-col md:flex-row items-center md:items-start justify-evenly text-center">
         <div className="w-1/6 flex flex-col items-center justify-between my-4 md:my-0">
           <h3 className="text-lg font-bold mb-2">Recognitions</h3>
           <ul className="space-y-1">
