@@ -1,3 +1,4 @@
+import Footer from "./Footer";
 import Header from "./Header";
 import Main from "./Main";
 
@@ -8,7 +9,9 @@ const HomePage = () => {
       <Main />
 
       {/* Footer Section */}
-      <footer className="py-4">{/* Add your footer content here */}</footer>
+      <footer className="py-4">
+        <Footer />
+      </footer>
     </div>
   );
 };
