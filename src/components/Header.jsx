@@ -50,9 +50,9 @@ const Header = () => {
       {isMenuOpen && (
         <div className="bg-black bg-opacity-50 absolute inset-x-0 top-full lg:hidden">
           <Navigation />
-          <div className="lg:hidden flex space-x-4 mr-5 border-b lg:border-b-0 border-gray-500 cursor-pointer transition-all hover:font-bold pt-3 pb-2 pl-3">
+          <div className="lg:hidden flex space-x-4 mr-5 border-b lg:border-b-0 border-gray-500 cursor-pointer transition-all hover:font-bold pt-3 pb-2 pl-4">
             {social.map((item) => (
-              <a key={item.id} href={item.href} className={`${item.icon}-icon block px-1`}>
+              <a key={item.id} href={item.href} className={`${item.icon}-icon block`}>
                 {item.name}
               </a>
             ))}

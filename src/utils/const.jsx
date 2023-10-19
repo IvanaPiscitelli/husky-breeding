@@ -1,6 +1,5 @@
 import imgC from "../assets/img_carousel.jpg";
-import { BsFacebook } from "react-icons/bs";
-import { PiInstagramLogoFill } from "react-icons/pi";
+import { LiaInstagram, LiaFacebook } from "react-icons/lia";
 
 export const imgHome = [
   { id: 1, img: imgC },
@@ -16,10 +15,10 @@ export const navigation = [
 ];
 
 export const social = [
-  { id: 1, name: <BsFacebook size={25} />, icon: "facebook", href: "https://www.facebook.com/conteamarullo" },
+  { id: 1, name: <LiaFacebook size={30} />, icon: "facebook", href: "https://www.facebook.com/conteamarullo" },
   {
     id: 2,
-    name: <PiInstagramLogoFill size={29} />,
+    name: <LiaInstagram size={30} />,
     icon: "instagram",
     href: "https://www.instagram.com/petgroomingdimichelemarullo/",
   },
