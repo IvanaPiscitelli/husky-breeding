@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navigation from "./Navigation";
 import { social } from "../utils/const";
+import Toggle from "./Toggle";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,6 +41,9 @@ const Header = () => {
             </svg>
           </button>
         </div>
+        <div className="hidden lg:block">
+          <Toggle />
+        </div>
       </div>
 
       {/* Mobile Navigation Menu */}
@@ -52,6 +56,9 @@ const Header = () => {
                 {item.name}
               </a>
             ))}
+          </div>
+          <div className="lg:hidden pt-3 pb-2 pl-4">
+            <Toggle />
           </div>
         </div>
       )}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useOurDogs = () => {
+const useResize = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -10,4 +10,4 @@ const useOurDogs = () => {
   return windowWidth;
 };
 
-export default useOurDogs;
+export default useResize;

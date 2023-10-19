@@ -63,3 +63,11 @@
 .dropdown-menu div:hover {
   background-color: gray;
 }
+
+/* Toggle */
+.dot {
+  transition: all 0.3s ease-in-out;
+}
+#toggle:checked + .block .dot {
+  transform: translateX(100%);
+}

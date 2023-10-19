@@ -1,5 +1,5 @@
 import "../../src/index.css";
-import useOurDogs from "../hooks/useOurDogs";
+import useResize from "../hooks/useResize";
 import { navigation } from "../utils/const";
 import Female from "./Female";
 import Male from "./Male";
@@ -7,7 +7,7 @@ import { social } from "../utils/const";
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
 
 const Navigation = ({ isDropdownOpen, toggleDropdown }) => {
-  const windowWidth = useOurDogs();
+  const windowWidth = useResize();
   return (
     <nav className="mr-4 w-full">
       <ul className="flex justify-center h-full flex-col lg:flex-row space-y-4 lg:space-y-0 lg:m-2">
