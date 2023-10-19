@@ -1,4 +1,6 @@
 import { navigation, recognitions, social } from "../utils/const";
+import Female from "./Female";
+import Male from "./Male";
 
 const Footer = () => {
   return (
@@ -26,6 +28,11 @@ const Footer = () => {
                 </a>
               </li>
             ))}
+            {/* TODO: add pages correctly */}
+            {/* <>
+              <Male />
+              <Female />
+            </> */}
           </ul>
         </div>
         <div className="w-1/6 flex flex-col items-center my-4 md:my-0">
