@@ -1,17 +1,15 @@
 import { useState } from "react";
-import useResize from "../hooks/useResize";
 
 const Toggle = () => {
-  const windowWidth = useResize();
   const [isToggle, setIsToggle] = useState(false);
   const toggle = () => {
     setIsToggle(!isToggle);
   };
-  const unique = windowWidth > 959 ? "toggle-desktop" : "toggle-mobile";
+
   return (
     <div className="relative w-20 mr-10">
-      <label htmlFor={unique} className="flex items-center cursor-pointer">
-        <input type="checkbox" id={unique} className="sr-only" onChange={toggle} checked={isToggle} />
+      <label className="flex items-center cursor-pointer">
+        <input type="checkbox" id="toggle" className="sr-only" onChange={toggle} checked={isToggle} />
         <div className="block bg-gray-600 w-full h-8 rounded-full">
           <div
             className={`absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition ${
