@@ -1,7 +1,5 @@
 import "../../src/index.css";
 import { navigation } from "../utils/const";
-// import { BsFacebook } from "react-icons/bs";
-// import { PiInstagramLogoFill } from "react-icons/pi";
 
 const Navigation = () => {
   return (

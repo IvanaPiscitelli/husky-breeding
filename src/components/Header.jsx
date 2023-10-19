@@ -38,8 +38,6 @@ const Header = () => {
         </div>
 
         <div className="hidden lg:flex space-x-4 mr-5 list-none">
-          {/* Questo div conterrà le icone di Facebook e Instagram */}
-
           {social.map((item) => (
             <li key={item.id}>{item.name}</li>
           ))}
@@ -64,7 +62,3 @@ const Header = () => {
 };
 
 export default Header;
-
-// padding-top: 0.6em;
-// padding-left: 0.7em;
-// padding-bottom: 0.1em;

@@ -1,5 +1,4 @@
 // import hero from "../assets/michele_hero.jpeg";
-
 import hero from "../assets/husky_hero_background.jpg";
 import { Carousel } from "@material-tailwind/react";
 import { imgHome } from "../utils/const";
