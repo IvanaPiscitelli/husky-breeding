@@ -11,9 +11,11 @@ const Header = () => {
   const toggleDropdown = () => {
     setIsDropdownOpen((prevState) => !prevState);
   };
+
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
       setIsMenuOpen(false);
+      setIsDropdownOpen(false);
     }
   };
   useEffect(() => {
@@ -35,7 +37,7 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex lg:flex-grow items-center">
-          <div className="flex-grow z-50">
+          <div ref={menuRef} className="flex-grow z-50">
             <Navigation isDropdownOpen={isDropdownOpen} toggleDropdown={toggleDropdown} />
           </div>
         </div>
