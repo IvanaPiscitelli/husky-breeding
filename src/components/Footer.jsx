@@ -37,7 +37,7 @@ const Footer = () => {
         </div>
         <div className="w-1/6 flex flex-col items-center my-4 md:my-0">
           <h3 className="text-lg font-bold mb-2">Contacts</h3>
-          <ul className="flex space-x-4 w-32 cursor-pointer transition-all">
+          <ul className="flex space-x-4 w-32 cursor-pointer transition-all justify-center">
             {social.map((item) => (
               <a key={item.id} href={item.href} className={`${item.icon}-icon block`}>
                 {item.name}
