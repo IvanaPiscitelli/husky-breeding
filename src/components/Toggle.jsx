@@ -24,7 +24,7 @@ const Toggle = () => {
             IT
           </div>
           <div
-            className={`absolute inset-y-0 right-0 flex items-center pr-2 ${
+            className={`absolute inset-y-0 right-0 flex items-center pr-[0.4rem] ${
               isToggle ? "text-gray-700" : "text-white"
             } font-bold text-xs`}
           >
