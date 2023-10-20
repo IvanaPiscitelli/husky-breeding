@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Navigation from "./Navigation";
 import { social } from "../utils/const";
 import Toggle from "./Toggle";
@@ -6,9 +6,22 @@ import Toggle from "./Toggle";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const menuRef = useRef(null);
+
   const toggleDropdown = () => {
     setIsDropdownOpen((prevState) => !prevState);
   };
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setIsMenuOpen(false);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <header className="bg-black bg-opacity-20 max-[959px]:p-2 p-1 z-10 absolute w-full text-white">
@@ -48,7 +61,7 @@ const Header = () => {
 
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
-        <div className="bg-black bg-opacity-50 absolute inset-x-0 top-full lg:hidden z-50">
+        <div ref={menuRef} className="bg-black bg-opacity-50 absolute inset-x-0 top-full lg:hidden z-50">
           <Navigation isDropdownOpen={isDropdownOpen} toggleDropdown={toggleDropdown} />
           <div className="lg:hidden flex space-x-4 mr-5 border-b lg:border-b-0 border-gray-500 cursor-pointer transition-all hover:font-bold pt-3 pb-2 pl-4">
             {social.map((item) => (
