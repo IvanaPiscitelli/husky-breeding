@@ -17,7 +17,7 @@ const Navigation = ({ isDropdownOpen, toggleDropdown }) => {
             onClick={item.name === "Our Dogs" ? toggleDropdown : null}
             className="underline-effect border-b lg:border-b-0 border-gray-500 cursor-pointer transition-all hover:font-bold pt-1"
           >
-            <a href={item.href} className={`${item.id === 1 ? "mt-5 lg:mt-0" : ""} block px-4`}>
+            <a href={item.href} className={`${item.id === 1 ? "mt-5 lg:mt-0" : ""} block px-4 pb-2`}>
               {item.name}
             </a>
             {item.name === "Our Dogs" && <span className="lg:hidden">{isDropdownOpen ? "−" : "+"}</span>}
