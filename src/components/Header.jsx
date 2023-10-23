@@ -7,13 +7,14 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const menuRef = useRef(null);
+  const burgerButtonRef = useRef(null);
 
   const toggleDropdown = () => {
     setIsDropdownOpen((prevState) => !prevState);
   };
 
   const handleClickOutside = (event) => {
-    if (menuRef.current && !menuRef.current.contains(event.target)) {
+    if (menuRef.current && !menuRef.current.contains(event.target) && !burgerButtonRef.current.contains(event.target)) {
       setIsMenuOpen(false);
       setIsDropdownOpen(false);
     }
@@ -44,7 +45,7 @@ const Header = () => {
 
         {/* Mobile Navigation Button */}
         <div className="lg:hidden mr-5">
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button ref={burgerButtonRef} onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <svg
               className="w-6 h-6"
               fill="none"
