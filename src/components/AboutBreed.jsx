@@ -1,14 +1,19 @@
 import FirstPic from "../assets/800px-Leonhard_Seppala_with_dogs.jpg.webp";
 import faceHusky from "../assets/faceHusky.jpeg";
-import SecondPic from "../assets/IMG_4468.jpg";
+// import SecondPic from "../assets/IMG_4468.jpg";
 import ThirdPic from "../assets/michele_hero.jpeg";
 // import ForthPic from "../assets/86CA9BFC-6861-46D0-955E-F24EB8200212_1_105_c.jpeg";
 import FourthLupo from "../assets/mLupo.jpeg";
+import grooming from "../assets/lf6vcr2yg3cz-2048x2039.webp";
+import health from "../assets/hip-dysplasia-in-dogs-xrays-750x299-1.webp";
+import standard from "../assets/SHCA_IllustratedStandard_p03.jpg";
+import { generalAppearanceList } from "../utils/const";
 
 const AboutBreed = () => {
   return (
     <div className="bg-gray-100 py-24 text-center pt-80">
-      <section className="grid grid-cols-1 mx-auto max-w-7xl md:grid-cols-2 gap-8 text-center lg:text-left">
+      {/* First Section */}
+      <section className="grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2 gap-8 text-center lg:text-left">
         <div className="max-w-full mx-auto px-10">
           <h2 className="text-2xl text-[#0d98b8] font-bold mb-4">SIBERIAN HUSKY HISTORY</h2>
           <p className="text-base">
@@ -33,8 +38,8 @@ const AboutBreed = () => {
             breed began.
           </p>
         </div>
-        <div className="mx-4">
-          <figure>
+        <div className="mx-20 my-auto">
+          <figure className="flex flex-col justify-center items-center">
             <img src={FirstPic} alt="Descrizione Immagine" className="rounded-lg shadow-lg" />
             <figcaption className="text-sm text-gray-500 mt-2">
               Leonhard Seppala with sled dogs from his kennels. From left to right - Togo, Karinsky, Jafet, Pete,
@@ -45,59 +50,83 @@ const AboutBreed = () => {
       </section>
 
       {/* Second Section */}
-      <section className="grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2 gap-8 text-center lg:text-left pt-20">
-        <div className="flex justify-between flex-col max-w-full mx-auto px-10">
-          <h2 className="text-2xl text-[#0d98b8] font-bold mb-4">GENERAL APPEARANCE</h2>
-          <h3 className="text-sm font-bold mb-4">EYES</h3>
-          <p>
-            The American Kennel Club describes the Siberian Husky’s eyes as “an almond shape, moderately spaced and set
-            slightly obliquely.” The AKC breed standard is that eyes may be brown, blue or black; one of each or
-            particolored are acceptable. These eye-color combinations are considered acceptable by the American Kennel
-            Club. The parti-color does not affect the vision of the dog.
-          </p>
-          <h3 className="text-sm font-bold mb-4">NOSE</h3>
-          <p>
-            The nose is black in gray dogs, tan in black dogs, liver in copper-colored dogs, and may be light tan in
-            white dogs. In some instances, Siberian Huskies can exhibit what is called “snow nose” or “winter nose.”
-            “Snow nose” is acceptable in the show ring.
-          </p>
-          <h3 className="text-sm font-bold mb-4">TAIL</h3>
-          <p>
-            Siberian Husky tails are heavily furred; these dogs will often curl up with their tails over their faces and
-            noses in order to provide additional warmth. When curled up to sleep the Siberian Husky will cover its nose
-            for warmth, often referred to as the “Siberian Swirl”. The tail should be expressive, held low when the dog
-            is relaxed, and curved upward in a “sickle” shape when excited or interested in something.
-          </p>
-          <h3 className="text-sm font-bold mb-4">SIZE</h3>
-          <p>
-            The breed standard indicates that the males of the breed are ideally between 20 and 24 inches (51 and
-            61&nbsp;cm) tall at the withers and weighing between 45 and 60 pounds (20 and 27&nbsp;kg). Females are
-            smaller, growing to between 19 to 23 inches (48 to 58&nbsp;cm) tall at the withers and weighing between 35
-            to 50 pounds (16 to 23&nbsp;kg)
-          </p>
-          <h3 className="text-sm font-bold mb-4">COAT</h3>
-          <p>
-            A Siberian Husky has a double coat that is thicker than that of most other dog breeds. It has two layers: a
-            dense, finely wavy undercoat and a longer topcoat of thicker, straight guard hairs. It protects the dogs
-            effectively against harsh Arctic winters, and also reflects heat in the summer. It is able to withstand
-            temperatures as low as −50 to −60&nbsp;°C. The undercoat is often absent during shedding. Their thick coats
-            require weekly grooming. An excessively long coat, sometimes referred to as a “wooly” / “woolie” or “long
-            haired” coat, is considered a fault by the breed’s standard as it lacks the thicker protection of the
-            standard coat’s guard hairs, obscures the dog’s clear-cut outline, causes quicker overheating during serious
-            harness work, and becomes easily matted and encrusted with snow and ice. Siberian Huskies come in a variety
-            of colors and patterns often with white paws and legs, facial markings, and tail tip. Example coat colors
-            are black and white, copper-red and white, grey and white, pure white, and agouti coat, though many
-            individuals have blondish or piebald spotting. Some other individuals also have the “saddle back” pattern,
-            in which black-tipped guard hairs are restricted to the saddle area while the head, haunches and shoulders
-            are either light red or white. Striking masks, spectacles, and other facial markings occur in wide variety.
-            All coat colors from black to pure white are allowed. Merle coat patterns are not permitted. This pattern is
-            often associated with health issues and mixed breeding.
-          </p>
+      <section className="grid grid-cols-1 mx-auto max-w-7xl max-h-[213rem] sm:max-h-[160rem] lg:max-h-[120rem] xl:max-h-[95rem] lg:grid-cols-2 gap-8 text-center lg:text-left pt-20">
+        <div className="flex gap-8 flex-col max-w-full mx-auto px-10">
+          <h2 className="text-2xl text-[#0d98b8] font-bold">GENERAL APPEARANCE</h2>
+          {generalAppearanceList.map((item) => (
+            <div key={item.id}>
+              <h3 className="text-sm font-bold">{item.title}</h3>
+              <p>{item.text}</p>
+            </div>
+          ))}
         </div>
-        <div className="mx-4 flex flex-col justify-center gap-8 mb-[36rem]">
+        <div className="mx-20 flex flex-col justify-center gap-8">
           <img src={faceHusky} alt="First Pic" className="rounded-lg shadow-lg" />
           <img src={ThirdPic} alt="Second Pic" className="rounded-lg shadow-lg" />
           <img src={FourthLupo} alt="3 Pic" className="rounded-lg shadow-lg" />
+        </div>
+      </section>
+
+      {/* Third Section */}
+      <section className="grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2 gap-8 text-center lg:text-left pt-20">
+        <div className="max-w-full mx-auto px-10">
+          <h2 className="text-2xl text-[#0d98b8] font-bold mb-4">GROOMING</h2>
+          <p className="text-base">
+            Unlike many breeds the Siberian Husky has retained its original naturally functional coat. As a result the
+            husky coat needs very minimal grooming. Brushing about twice a week will remove any loose hairs and provide
+            an opportunity to check for fleas etc. Generally huskies require very little bathing unless they have gotten
+            particularly dirty, usually a few times a year is sufficient. The main challenge with a huskies coat is
+            dealing with shedding. Huskies have a double coat of hair, an undercoat and an outer coat. Approximately
+            twice a year, depending on your climate, a husky will blow or shed its undercoat. This can last for about
+            three weeks or more and a huge quantity of hair is lost in this time. The hair falls out in clumps,
+            sometimes large clumps and so daily brushing is required to remove the hair that is falling out. The
+            shedding will usually start on the legs and thighs and then progress the body and finish up with the
+            britches and tail area. Sometimes a warm bath can help to loosen up hair during shedding season and make it
+            easier to brush out. <br /> <br /> Do not underestimate the amount of fur that will be lost during a huskies
+            shedding. If you do not want hairs on your furniture, clothes etc. then a husky is not the right breed for
+            you.
+          </p>
+        </div>
+        <div className="mx-20 my-auto">
+          <img src={grooming} alt="Grooming pic" className="rounded-lg shadow-lg" />
+        </div>
+      </section>
+
+      {/* Forth Section */}
+      <section className="grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2 gap-8 text-center lg:text-left pt-20">
+        <div className="max-w-full mx-auto px-10">
+          <h2 className="text-2xl text-[#0d98b8] font-bold mb-4">HEALTH</h2>
+          <p className="text-base">
+            The Siberian Husky is subject to a number of inherited diseases of the eye, including cataracts, corneal
+            dystrophy, progressive retinal atrophy, and glaucoma. Given the wide array of possible eye conditions,
+            regular eye examinations at the veterinarian’s office are in order. Many of these conditions are not
+            treatable, although some may be amenable to surgery. Dogs with progressive retinal atrophy should not be
+            bred. The Siberian Husky can also be prone to epilepsy and seizures. Drugs can be used to control these
+            seizures, and again genetically predisposed dogs should not be used in breeding. Hip Dysplasia is not often
+            found in this breed; however, as with many medium or larger-sized canines, it can occur. The Orthopedic
+            Foundation of Animals currently has the Siberian Husky ranked 155th out of a possible 160 breeds at risk for
+            hip dysplasia, with only two percent of tested Siberian Huskies showing dysplasia.
+          </p>
+        </div>
+        <div className="mx-20 my-auto">
+          <img src={health} alt="Grooming pic" className="rounded-lg shadow-lg" />
+        </div>
+      </section>
+
+      {/* Fifth Section */}
+      <section className="grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2 gap-8 text-center lg:text-left pt-20">
+        <div className="max-w-full my-auto px-10">
+          <h2 className="text-2xl text-[#0d98b8] font-bold mb-4 inline-block">Official Breed Standard: </h2>
+          <a href="https://www.shca.org/the-siberian-husky-standard" className="inline-block underline ml-2">
+            Official Breed Standard
+          </a>
+          <h2 className="text-2xl text-[#0d98b8] font-bold mb-4 inline-block">Illustrated Standard: </h2>
+          <a href="https://www.shca.org/illustrated-standard-1" className="inline-block underline ml-2">
+            Illustrated Siberian Husky Standard
+          </a>
+        </div>
+        <div className="mx-20">
+          <img src={standard} alt="Grooming pic" className="rounded-lg shadow-lg" />
         </div>
       </section>
     </div>
