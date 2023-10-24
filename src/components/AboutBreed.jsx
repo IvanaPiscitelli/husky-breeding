@@ -1,7 +1,9 @@
 import FirstPic from "../assets/800px-Leonhard_Seppala_with_dogs.jpg.webp";
+import faceHusky from "../assets/faceHusky.jpeg";
 import SecondPic from "../assets/IMG_4468.jpg";
 import ThirdPic from "../assets/michele_hero.jpeg";
-import ForthPic from "../assets/86CA9BFC-6861-46D0-955E-F24EB8200212_1_105_c.jpeg";
+// import ForthPic from "../assets/86CA9BFC-6861-46D0-955E-F24EB8200212_1_105_c.jpeg";
+import FourthLupo from "../assets/mLupo.jpeg";
 
 const AboutBreed = () => {
   return (
@@ -43,37 +45,37 @@ const AboutBreed = () => {
       </section>
 
       {/* Second Section */}
-      <section className="grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2 gap-8 text-center lg:text-left pt-6">
-        <div className="max-w-full mx-auto px-10">
+      <section className="grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2 gap-8 text-center lg:text-left pt-20">
+        <div className="flex justify-between flex-col max-w-full mx-auto px-10">
           <h2 className="text-2xl text-[#0d98b8] font-bold mb-4">GENERAL APPEARANCE</h2>
-          <h3>EYES</h3>
+          <h3 className="text-sm font-bold mb-4">EYES</h3>
           <p>
             The American Kennel Club describes the Siberian Husky’s eyes as “an almond shape, moderately spaced and set
             slightly obliquely.” The AKC breed standard is that eyes may be brown, blue or black; one of each or
-            particoloured are acceptable. These eye-color combinations are considered acceptable by the American Kennel
+            particolored are acceptable. These eye-color combinations are considered acceptable by the American Kennel
             Club. The parti-color does not affect the vision of the dog.
           </p>
-          <h3>NOSE</h3>
+          <h3 className="text-sm font-bold mb-4">NOSE</h3>
           <p>
             The nose is black in gray dogs, tan in black dogs, liver in copper-colored dogs, and may be light tan in
             white dogs. In some instances, Siberian Huskies can exhibit what is called “snow nose” or “winter nose.”
             “Snow nose” is acceptable in the show ring.
           </p>
-          <h3>TAIL</h3>
+          <h3 className="text-sm font-bold mb-4">TAIL</h3>
           <p>
-            TSiberian Husky tails are heavily furred; these dogs will often curl up with their tails over their faces
-            and noses in order to provide additional warmth. When curled up to sleep the Siberian Husky will cover its
-            nose for warmth, often referred to as the “Siberian Swirl”. The tail should be expressive, held low when the
-            dog is relaxed, and curved upward in a “sickle” shape when excited or interested in something.
+            Siberian Husky tails are heavily furred; these dogs will often curl up with their tails over their faces and
+            noses in order to provide additional warmth. When curled up to sleep the Siberian Husky will cover its nose
+            for warmth, often referred to as the “Siberian Swirl”. The tail should be expressive, held low when the dog
+            is relaxed, and curved upward in a “sickle” shape when excited or interested in something.
           </p>
-          <h3>SIZE</h3>
+          <h3 className="text-sm font-bold mb-4">SIZE</h3>
           <p>
             The breed standard indicates that the males of the breed are ideally between 20 and 24 inches (51 and
             61&nbsp;cm) tall at the withers and weighing between 45 and 60 pounds (20 and 27&nbsp;kg). Females are
             smaller, growing to between 19 to 23 inches (48 to 58&nbsp;cm) tall at the withers and weighing between 35
             to 50 pounds (16 to 23&nbsp;kg)
           </p>
-          <h3>COAT</h3>
+          <h3 className="text-sm font-bold mb-4">COAT</h3>
           <p>
             A Siberian Husky has a double coat that is thicker than that of most other dog breeds. It has two layers: a
             dense, finely wavy undercoat and a longer topcoat of thicker, straight guard hairs. It protects the dogs
@@ -92,10 +94,10 @@ const AboutBreed = () => {
             often associated with health issues and mixed breeding.
           </p>
         </div>
-        <div className="mx-4 flex flex-col justify-between">
-          <img src={SecondPic} alt="First Pic" className="rounded-lg shadow-lg" />
+        <div className="mx-4 flex flex-col justify-center gap-8 mb-[36rem]">
+          <img src={faceHusky} alt="First Pic" className="rounded-lg shadow-lg" />
           <img src={ThirdPic} alt="Second Pic" className="rounded-lg shadow-lg" />
-          <img src={ForthPic} alt="3 Pic" className="rounded-lg shadow-lg" />
+          <img src={FourthLupo} alt="3 Pic" className="rounded-lg shadow-lg" />
         </div>
       </section>
     </div>
