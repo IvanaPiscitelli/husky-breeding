@@ -23,7 +23,7 @@ const AboutBreed = () => {
             at that time was known as the Siberian Chukchi was bred for endurance to cover the long distances rather
             than for speed. They had to be energy efficient so that they could perform their task with as little effort
             as possible.The friendly nature of the breed also stems from the Chuckchi as the dogs were primarily cared
-            for by the women and children of the tribe on a daily basis and thus they adapted to family life. <br />{" "}
+            for by the women and children of the tribe on a daily basis and thus they adapted to family life. <br />
             <br /> It was in 1908 that a Russian fur trader named Goosak brought a group of huskies still known as
             Chukchis to Alaska. His purpose was to enter the All-Alaska Sweepstakes sled dog race which was a 657km race
             in which he was placed third. Following this race, a man named Fox Maule Ramsay chartered a boat to Siberia
