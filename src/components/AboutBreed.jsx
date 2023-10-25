@@ -7,13 +7,26 @@ import FourthLupo from "../assets/mLupo.jpeg";
 import grooming from "../assets/lf6vcr2yg3cz-2048x2039.webp";
 import health from "../assets/hip-dysplasia-in-dogs-xrays-750x299-1.webp";
 import standard from "../assets/SHCA_IllustratedStandard_p03.jpg";
-import { defectList, generalAppearanceList } from "../utils/const";
+import { defectList, generalAppearanceList, menuBreedList } from "../utils/const";
 
 const AboutBreed = () => {
   return (
-    <div className="bg-gray-100 py-24 text-center pt-80">
+    <div className="bg-gray-100 py-24 text-center">
+      {/* MENU LIST */}
+
+      <ul className="flex flex-col mx-auto max-w-7xl md:max-w-lg lg:max-w-2xl xl:max-w-4xl px-10 items-start cursor-pointer pt-12 transition-all list-disc">
+        {menuBreedList.map((list) => (
+          <li key={list.id} className="font-bold text-gray-700 hover:text-[#0d98b8]">
+            <a href={`#${list.id}`}>{list.text}</a>
+          </li>
+        ))}
+      </ul>
+
       {/* First Section */}
-      <section className="grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2 gap-8 text-center lg:text-left">
+      <section
+        id="history"
+        className="grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2 gap-8 text-center lg:text-left pt-20"
+      >
         <div className="max-w-full mx-auto px-10">
           <h2 className="text-2xl text-[#0d98b8] font-bold mb-4">SIBERIAN HUSKY HISTORY</h2>
           <p className="text-xs">
@@ -55,11 +68,12 @@ const AboutBreed = () => {
 
       {/* Second Section */}
       <section
+        id="standard"
         className="grid grid-cols-1 mx-auto max-w-7xl max-h-[213rem] sm:max-h-[170rem] 
       lg:max-h-[120rem] lg:grid-cols-2 gap-8 text-center lg:text-left pt-20"
       >
         <div className="flex gap-8 flex-col max-w-full mx-auto px-10">
-          <h2 className="text-2xl text-[#0d98b8] font-bold"> Standard del Siberian Husky</h2>
+          <h2 className="text-2xl text-[#0d98b8] font-bold"> STANDARD DEL SIBERIAN HUSKY</h2>
           {generalAppearanceList.map((item) => (
             <div key={item.id}>
               <h3 className="text-sm font-bold">{item.title}</h3>
@@ -75,7 +89,10 @@ const AboutBreed = () => {
       </section>
 
       {/* Third Section */}
-      <section className="grid grid-cols-1 mx-auto max-w-7xl max-h-[213rem] sm:max-h-[173rem] lg:max-h-[123rem] xl:max-h-[102rem] text-center lg:text-left pt-20">
+      <section
+        id="defect"
+        className="grid grid-cols-1 mx-auto max-w-7xl max-h-[213rem] sm:max-h-[173rem] lg:max-h-[123rem] xl:max-h-[102rem] text-center lg:text-left pt-20"
+      >
         <div className="flex gap-4 flex-col max-w-full px-10">
           <h2 className="text-2xl text-[#0d98b8] font-bold">DEFECT</h2>
           <p className="text-xs whitespace-pre-line">
@@ -92,7 +109,10 @@ const AboutBreed = () => {
       </section>
 
       {/* Forth Section */}
-      <section className="grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2 gap-8 text-center lg:text-left pt-20">
+      <section
+        id="grooming"
+        className="grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2 gap-8 text-center lg:text-left pt-20"
+      >
         <div className="max-w-full mx-auto px-10">
           <h2 className="text-2xl text-[#0d98b8] font-bold mb-4">GROOMING</h2>
           <p className="text-xs">
@@ -117,7 +137,10 @@ const AboutBreed = () => {
       </section>
 
       {/* Fifth Section */}
-      <section className="grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2 gap-8 text-center lg:text-left pt-20">
+      <section
+        id="health"
+        className="grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2 gap-8 text-center lg:text-left pt-20"
+      >
         <div className="max-w-full mx-auto px-10">
           <h2 className="text-2xl text-[#0d98b8] font-bold mb-4">HEALTH</h2>
           <p className="text-xs">
@@ -138,7 +161,10 @@ const AboutBreed = () => {
       </section>
 
       {/* Sixth Section */}
-      <section className="grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2 gap-8 text-center lg:text-left pt-20">
+      <section
+        id="links"
+        className="grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2 gap-8 text-center lg:text-left pt-20"
+      >
         <div className="max-w-full my-auto px-10">
           <h2 className="text-2xl text-[#0d98b8] font-bold mb-4 inline-block">Official Breed Standard: </h2>
           <a href="https://www.shca.org/the-siberian-husky-standard" className="inline-block underline ml-2">

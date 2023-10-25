@@ -35,6 +35,15 @@ export const recognitions = [
   { id: 3, name: "Enci", img: "" },
 ];
 
+export const menuBreedList = [
+  { id: "history", text: "Siberian Husky History" },
+  { id: "standard", text: "Standard del Siberian Husky" },
+  { id: "defect", text: "Defect" },
+  { id: "grooming", text: "Grooming" },
+  { id: "health", text: "Health" },
+  { id: "links", text: "Links" },
+];
+
 export const generalAppearanceList = [
   {
     id: 1,
