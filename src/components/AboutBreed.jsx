@@ -7,7 +7,7 @@ import FourthLupo from "../assets/mLupo.jpeg";
 import grooming from "../assets/lf6vcr2yg3cz-2048x2039.webp";
 import health from "../assets/hip-dysplasia-in-dogs-xrays-750x299-1.webp";
 import standard from "../assets/SHCA_IllustratedStandard_p03.jpg";
-import { generalAppearanceList } from "../utils/const";
+import { defectList, generalAppearanceList } from "../utils/const";
 
 const AboutBreed = () => {
   return (
@@ -16,7 +16,7 @@ const AboutBreed = () => {
       <section className="grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2 gap-8 text-center lg:text-left">
         <div className="max-w-full mx-auto px-10">
           <h2 className="text-2xl text-[#0d98b8] font-bold mb-4">SIBERIAN HUSKY HISTORY</h2>
-          <p className="text-base">
+          <p className="text-xs">
             It is the Chukchi tribe that is credited with the origination of the Siberian Husky. The Chukchi tribe
             inhabited the part of Siberia closest to Alaska and the harsh weather conditions along with the necessity to
             transport food and goods over a long distance led to the beginning of the sled dog. The Siberian Husky which
@@ -38,10 +38,14 @@ const AboutBreed = () => {
             breed began.
           </p>
         </div>
-        <div className="mx-20 my-auto">
+        <div className="mx-20 sm:mx-44 lg:mx-20 my-auto">
           <figure className="flex flex-col justify-center items-center">
-            <img src={FirstPic} alt="Descrizione Immagine" className="rounded-lg shadow-lg" />
-            <figcaption className="text-sm text-gray-500 mt-2">
+            <img
+              src={FirstPic}
+              alt="Descrizione Immagine"
+              className="rounded-lg shadow-lg h-full md:h-[25rem] lg:h-full"
+            />
+            <figcaption className="text-xs text-gray-500 mt-2">
               Leonhard Seppala with sled dogs from his kennels. From left to right - Togo, Karinsky, Jafet, Pete,
               unknown dog, Fritz
             </figcaption>
@@ -50,17 +54,20 @@ const AboutBreed = () => {
       </section>
 
       {/* Second Section */}
-      <section className="grid grid-cols-1 mx-auto max-w-7xl max-h-[213rem] sm:max-h-[160rem] lg:max-h-[120rem] xl:max-h-[95rem] lg:grid-cols-2 gap-8 text-center lg:text-left pt-20">
+      <section
+        className="grid grid-cols-1 mx-auto max-w-7xl max-h-[213rem] sm:max-h-[170rem] 
+      lg:max-h-[120rem] lg:grid-cols-2 gap-8 text-center lg:text-left pt-20"
+      >
         <div className="flex gap-8 flex-col max-w-full mx-auto px-10">
-          <h2 className="text-2xl text-[#0d98b8] font-bold">GENERAL APPEARANCE</h2>
+          <h2 className="text-2xl text-[#0d98b8] font-bold"> Standard del Siberian Husky</h2>
           {generalAppearanceList.map((item) => (
             <div key={item.id}>
               <h3 className="text-sm font-bold">{item.title}</h3>
-              <p>{item.text}</p>
+              <p className="text-xs whitespace-pre-line">{item.text}</p>
             </div>
           ))}
         </div>
-        <div className="mx-20 flex flex-col justify-center gap-8">
+        <div className="mx-20 sm:mx-44 lg:mx-20 flex flex-col justify-center gap-8">
           <img src={faceHusky} alt="First Pic" className="rounded-lg shadow-lg" />
           <img src={ThirdPic} alt="Second Pic" className="rounded-lg shadow-lg" />
           <img src={FourthLupo} alt="3 Pic" className="rounded-lg shadow-lg" />
@@ -68,10 +75,27 @@ const AboutBreed = () => {
       </section>
 
       {/* Third Section */}
+      <section className="grid grid-cols-1 mx-auto max-w-7xl max-h-[213rem] sm:max-h-[173rem] lg:max-h-[123rem] xl:max-h-[102rem] text-center lg:text-left pt-20">
+        <div className="flex gap-4 flex-col max-w-full px-10">
+          <h2 className="text-2xl text-[#0d98b8] font-bold">DEFECT</h2>
+          <p className="text-xs whitespace-pre-line">
+            Qualsiasi deviazione deve essere considerato difetto e la severita’ con cui verra’ considerato e’
+            esattamente proporzionale alla sua gravita’.
+          </p>
+          {defectList.map((item) => (
+            <div key={item.id}>
+              <h3 className="text-sm font-bold">{item.title}</h3>
+              <p className="text-xs whitespace-pre-line">{item.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Forth Section */}
       <section className="grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2 gap-8 text-center lg:text-left pt-20">
         <div className="max-w-full mx-auto px-10">
           <h2 className="text-2xl text-[#0d98b8] font-bold mb-4">GROOMING</h2>
-          <p className="text-base">
+          <p className="text-xs">
             Unlike many breeds the Siberian Husky has retained its original naturally functional coat. As a result the
             husky coat needs very minimal grooming. Brushing about twice a week will remove any loose hairs and provide
             an opportunity to check for fleas etc. Generally huskies require very little bathing unless they have gotten
@@ -92,11 +116,11 @@ const AboutBreed = () => {
         </div>
       </section>
 
-      {/* Forth Section */}
+      {/* Fifth Section */}
       <section className="grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2 gap-8 text-center lg:text-left pt-20">
         <div className="max-w-full mx-auto px-10">
           <h2 className="text-2xl text-[#0d98b8] font-bold mb-4">HEALTH</h2>
-          <p className="text-base">
+          <p className="text-xs">
             The Siberian Husky is subject to a number of inherited diseases of the eye, including cataracts, corneal
             dystrophy, progressive retinal atrophy, and glaucoma. Given the wide array of possible eye conditions,
             regular eye examinations at the veterinarian’s office are in order. Many of these conditions are not
@@ -113,7 +137,7 @@ const AboutBreed = () => {
         </div>
       </section>
 
-      {/* Fifth Section */}
+      {/* Sixth Section */}
       <section className="grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2 gap-8 text-center lg:text-left pt-20">
         <div className="max-w-full my-auto px-10">
           <h2 className="text-2xl text-[#0d98b8] font-bold mb-4 inline-block">Official Breed Standard: </h2>
