@@ -11,7 +11,7 @@ import { defectList, generalAppearanceList, menuBreedList } from "../utils/const
 
 const AboutBreed = () => {
   return (
-    <div className="bg-gray-100 py-24 text-center">
+    <div id="top" className="bg-gray-100 py-24 text-center">
       {/* MENU LIST */}
 
       <ul className="flex flex-col mx-auto max-w-7xl md:max-w-lg lg:max-w-2xl xl:max-w-4xl px-10 items-start cursor-pointer pt-12 transition-all list-disc">
@@ -50,6 +50,11 @@ const AboutBreed = () => {
             through his own breeding programmes and his dogs became the foundation stock for other breeders, and so the
             breed began.
           </p>
+          <div className="pt-6 hidden lg:block">
+            <a href="#top" className="font-bold text-gray-700 hover:text-[#0d98b8]">
+              Back to Top
+            </a>
+          </div>
         </div>
         <div className="mx-20 sm:mx-44 lg:mx-20 my-auto">
           <figure className="flex flex-col justify-center items-center">
@@ -64,20 +69,31 @@ const AboutBreed = () => {
             </figcaption>
           </figure>
         </div>
+        <div className="mx-20 sm:mx-44 lg:mx-20 block lg:hidden">
+          <a href="#top" className="font-bold text-gray-700 hover:text-[#0d98b8]">
+            Back to Top
+          </a>
+        </div>
       </section>
 
       {/* Second Section */}
       <section
         id="standard"
-        className="grid grid-cols-1 mx-auto max-w-7xl max-h-[213rem] sm:max-h-[170rem] 
-      lg:max-h-[120rem] lg:grid-cols-2 gap-8 text-center lg:text-left pt-20"
+        className="grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2 gap-8 text-center lg:text-left pt-20"
       >
         <div className="flex gap-8 flex-col max-w-full mx-auto px-10">
           <h2 className="text-2xl text-[#0d98b8] font-bold"> STANDARD DEL SIBERIAN HUSKY</h2>
-          {generalAppearanceList.map((item) => (
+          {generalAppearanceList.map((item, index) => (
             <div key={item.id}>
               <h3 className="text-sm font-bold">{item.title}</h3>
               <p className="text-xs whitespace-pre-line">{item.text}</p>
+              {index === generalAppearanceList.length - 1 && (
+                <div className="pt-6 hidden lg:block">
+                  <a href="#top" className="font-bold text-gray-700 hover:text-[#0d98b8]">
+                    Back to Top
+                  </a>
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -86,25 +102,39 @@ const AboutBreed = () => {
           <img src={ThirdPic} alt="Second Pic" className="rounded-lg shadow-lg" />
           <img src={FourthLupo} alt="3 Pic" className="rounded-lg shadow-lg" />
         </div>
+        <div className="mx-20 sm:mx-44 lg:mx-20 block lg:hidden">
+          <a href="#top" className="font-bold text-gray-700 hover:text-[#0d98b8]">
+            Back to Top
+          </a>
+        </div>
       </section>
 
       {/* Third Section */}
-      <section
-        id="defect"
-        className="grid grid-cols-1 mx-auto max-w-7xl max-h-[213rem] sm:max-h-[173rem] lg:max-h-[123rem] xl:max-h-[102rem] text-center lg:text-left pt-20"
-      >
+      <section id="defect" className="grid grid-cols-1 mx-auto max-w-7xl text-center lg:text-left pt-20">
         <div className="flex gap-4 flex-col max-w-full px-10">
           <h2 className="text-2xl text-[#0d98b8] font-bold">DEFECT</h2>
           <p className="text-xs whitespace-pre-line">
             Qualsiasi deviazione deve essere considerato difetto e la severita’ con cui verra’ considerato e’
             esattamente proporzionale alla sua gravita’.
           </p>
-          {defectList.map((item) => (
+          {defectList.map((item, index) => (
             <div key={item.id}>
               <h3 className="text-sm font-bold">{item.title}</h3>
               <p className="text-xs whitespace-pre-line">{item.text}</p>
+              {index === defectList.length - 1 && (
+                <div className="pt-6 hidden lg:block">
+                  <a href="#top" className="font-bold text-gray-700 hover:text-[#0d98b8]">
+                    Back to Top
+                  </a>
+                </div>
+              )}
             </div>
           ))}
+        </div>
+        <div className="mx-20 sm:mx-44 lg:mx-20 pt-6 block lg:hidden">
+          <a href="#top" className="font-bold text-gray-700 hover:text-[#0d98b8]">
+            Back to Top
+          </a>
         </div>
       </section>
 
@@ -130,9 +160,23 @@ const AboutBreed = () => {
             shedding. If you do not want hairs on your furniture, clothes etc. then a husky is not the right breed for
             you.
           </p>
+          <div className="pt-6 hidden lg:block">
+            <a href="#top" className="font-bold text-gray-700 hover:text-[#0d98b8]">
+              Back to Top
+            </a>
+          </div>
         </div>
-        <div className="mx-20 my-auto">
-          <img src={grooming} alt="Grooming pic" className="rounded-lg shadow-lg" />
+        <div className="mx-20 sm:mx-44 lg:mx-20 my-auto">
+          <img
+            src={grooming}
+            alt="Grooming pic"
+            className="mx-auto rounded-lg shadow-lg h-full md:h-[25rem] lg:h-full"
+          />
+        </div>
+        <div className="mx-20 sm:mx-44 lg:mx-20 block lg:hidden">
+          <a href="#top" className="font-bold text-gray-700 hover:text-[#0d98b8]">
+            Back to Top
+          </a>
         </div>
       </section>
 
@@ -154,9 +198,19 @@ const AboutBreed = () => {
             Foundation of Animals currently has the Siberian Husky ranked 155th out of a possible 160 breeds at risk for
             hip dysplasia, with only two percent of tested Siberian Huskies showing dysplasia.
           </p>
+          <div className="pt-6 hidden lg:block">
+            <a href="#top" className="font-bold text-gray-700 hover:text-[#0d98b8]">
+              Back to Top
+            </a>
+          </div>
         </div>
-        <div className="mx-20 my-auto">
+        <div className="mx-20 sm:mx-44 lg:mx-20 my-auto">
           <img src={health} alt="Grooming pic" className="rounded-lg shadow-lg" />
+        </div>
+        <div className="mx-20 sm:mx-44 lg:mx-20 block lg:hidden">
+          <a href="#top" className="font-bold text-gray-700 hover:text-[#0d98b8]">
+            Back to Top
+          </a>
         </div>
       </section>
 
@@ -174,9 +228,23 @@ const AboutBreed = () => {
           <a href="https://www.shca.org/illustrated-standard-1" className="inline-block underline ml-2">
             Illustrated Siberian Husky Standard
           </a>
+          <div className="pt-6 hidden lg:block">
+            <a href="#top" className="font-bold text-gray-700 hover:text-[#0d98b8]">
+              Back to Top
+            </a>
+          </div>
         </div>
-        <div className="mx-20">
-          <img src={standard} alt="Grooming pic" className="rounded-lg shadow-lg" />
+        <div className="mx-20 sm:mx-44 lg:mx-20">
+          <img
+            src={standard}
+            alt="Grooming pic"
+            className="mx-auto rounded-lg shadow-lg h-full md:h-[25rem] lg:h-full"
+          />
+        </div>
+        <div className="mx-20 sm:mx-44 lg:mx-20 block lg:hidden">
+          <a href="#top" className="font-bold text-gray-700 hover:text-[#0d98b8]">
+            Back to Top
+          </a>
         </div>
       </section>
     </div>
