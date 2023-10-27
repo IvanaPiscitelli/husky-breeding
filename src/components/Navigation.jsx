@@ -44,7 +44,7 @@ const Navigation = ({ isDropdownOpen, toggleDropdown }) => {
                 )}
           </li>
         ))}
-        <div className="hidden lg:flex space-x-4 mx-7 cursor-pointer transition-all">
+        <div className="hidden lg:flex space-x-4 mx-7 cursor-pointer transition-all h-[85%]">
           {social.map((item) => (
             <a key={item.id} href={item.href} className={`${item.icon}-icon block`}>
               {item.name}
