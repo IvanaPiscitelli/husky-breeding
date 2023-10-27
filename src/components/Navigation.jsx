@@ -45,7 +45,7 @@ const Navigation = ({ isDropdownOpen, toggleDropdown }) => {
               : item.name === "Our Dogs" &&
                 isDropdownOpen && (
                   <>
-                    <li className="lg:underline-effect border-b lg:border-b-0 border-gray-500 transition-all pb-1 ml-4 mt-2 cursor-pointer">
+                    <li className="lg:underline-effect border-b lg:border-b-0 border-gray-500 transition-all pb-1 ml-8 mt-3 cursor-pointer">
                       <a href="/male-husky" className="hover:font-bold">
                         Male
                       </a>
