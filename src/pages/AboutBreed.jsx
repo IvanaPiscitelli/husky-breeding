@@ -56,7 +56,7 @@ const AboutBreed = () => {
             </a>
           </div>
         </div>
-        <div className="mx-20 sm:mx-44 lg:mx-20 my-auto">
+        <div className="mx-20 xs:mx-44 lg:mx-20 my-auto">
           <figure className="flex flex-col justify-center items-center">
             <img
               src={FirstPic}

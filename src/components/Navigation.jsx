@@ -1,7 +1,6 @@
 import "../../src/index.css";
 import useResize from "../hooks/useResize";
 import { navigation } from "../utils/const";
-import Male from "../pages/Male";
 import { social } from "../utils/const";
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
 
@@ -44,7 +43,7 @@ const Navigation = ({ isDropdownOpen, toggleDropdown }) => {
                 )
               : item.name === "Our Dogs" &&
                 isDropdownOpen && (
-                  <>
+                  <ul>
                     <li className="lg:underline-effect border-b lg:border-b-0 border-gray-500 transition-all pb-1 ml-8 mt-3 cursor-pointer">
                       <a href="/male-husky" className="hover:font-bold">
                         Male
@@ -55,7 +54,7 @@ const Navigation = ({ isDropdownOpen, toggleDropdown }) => {
                         Female
                       </a>
                     </li>
-                  </>
+                  </ul>
                 )}
           </li>
         ))}
