@@ -58,7 +58,7 @@ const AboutBreed = () => {
         </div>
         <div className="mx-20 sm:mx-44 lg:mx-20 my-auto">
           <figure className="flex flex-col justify-center items-center">
-            <img src={FirstPic} alt="Descrizione Immagine" className="rounded-lg shadow-lg h-[25rem] lg:h-full" />
+            <img src={FirstPic} alt="Descrizione Immagine" className="rounded-lg shadow-lg" />
             <figcaption className="text-xs text-gray-500 mt-2">
               Leonhard Seppala with sled dogs from his kennels. From left to right - Togo, Karinsky, Jafet, Pete,
               unknown dog, Fritz
@@ -163,7 +163,7 @@ const AboutBreed = () => {
           </div>
         </div>
         <div className="mx-20 sm:mx-44 lg:mx-20 my-auto">
-          <img src={grooming} alt="Grooming pic" className="mx-auto rounded-lg shadow-lg h-[25rem] lg:h-full" />
+          <img src={grooming} alt="Grooming pic" className="mx-auto rounded-lg shadow-lg" />
         </div>
         <div className="mx-20 sm:mx-44 lg:mx-20 block lg:hidden">
           <a href="#top" className="font-bold text-gray-700 hover:text-[#0d98b8]">
@@ -227,7 +227,7 @@ const AboutBreed = () => {
           </div>
         </div>
         <div className="mx-20 sm:mx-44 lg:mx-20">
-          <img src={standard} alt="Grooming pic" className="mx-auto rounded-lg shadow-lg h-[25rem] lg:h-full" />
+          <img src={standard} alt="Grooming pic" className="mx-auto rounded-lg shadow-lg" />
         </div>
         <div className="mx-20 sm:mx-44 lg:mx-20 block lg:hidden">
           <a href="#top" className="font-bold text-gray-700 hover:text-[#0d98b8]">
