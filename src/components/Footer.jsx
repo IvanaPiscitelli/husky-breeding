@@ -23,7 +23,7 @@ const Footer = () => {
           <ul className="space-y-1 w-32">
             {navigation.map((item) => (
               <li key={item.id}>
-                <a href="#" className="text-sm">
+                <a href={item.href} className="text-sm">
                   {item.name}
                 </a>
               </li>
