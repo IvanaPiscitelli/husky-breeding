@@ -1,8 +1,7 @@
 import "../../src/index.css";
 import useResize from "../hooks/useResize";
 import { navigation } from "../utils/const";
-import Female from "./Female";
-import Male from "./Male";
+import Male from "../pages/Male";
 import { social } from "../utils/const";
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
 
@@ -31,15 +30,31 @@ const Navigation = ({ isDropdownOpen, toggleDropdown }) => {
               ? item.name === "Our Dogs" &&
                 isDropdownOpen && (
                   <div className="dropdown-menu">
-                    <Male />
-                    <Female />
+                    <li className="lg:underline-effect border-b lg:border-b-0 border-gray-500 transition-all pb-1 ml-4 mt-2 cursor-pointer">
+                      <a href="/male-husky" className="hover:font-bold">
+                        Male
+                      </a>
+                    </li>
+                    <li className="lg:underline-effect transition-all ml-4 mt-1 pb-1 cursor-pointer">
+                      <a href="/female-husky" className="hover:font-bold">
+                        Female
+                      </a>
+                    </li>
                   </div>
                 )
               : item.name === "Our Dogs" &&
                 isDropdownOpen && (
                   <>
-                    <Male />
-                    <Female />
+                    <li className="lg:underline-effect border-b lg:border-b-0 border-gray-500 transition-all pb-1 ml-4 mt-2 cursor-pointer">
+                      <a href="/male-husky" className="hover:font-bold">
+                        Male
+                      </a>
+                    </li>
+                    <li className="lg:underline-effect transition-all ml-8 mt-3 pb-1 cursor-pointer">
+                      <a href="/female-husky" className="hover:font-bold">
+                        Female
+                      </a>
+                    </li>
                   </>
                 )}
           </li>

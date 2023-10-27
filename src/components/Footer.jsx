@@ -1,6 +1,5 @@
 import { navigation, recognitions, social } from "../utils/const";
-import Female from "./Female";
-import Male from "./Male";
+import Male from "../pages/Male";
 
 const Footer = () => {
   return (
@@ -21,18 +20,23 @@ const Footer = () => {
         <div className="w-1/6 flex flex-col items-center my-4 md:my-0">
           <h3 className="text-lg font-bold mb-2">Pages</h3>
           <ul className="space-y-1 w-32">
-            {navigation.map((item) => (
-              <li key={item.id}>
-                <a href={item.href} className="text-sm">
-                  {item.name}
-                </a>
-              </li>
-            ))}
-            {/* TODO: add pages correctly */}
-            {/* <>
-              <Male />
-              <Female />
-            </> */}
+            {navigation.map(
+              (item, index) =>
+                index !== navigation.length - 1 && (
+                  <li key={item.id}>
+                    <a href={item.href} className="text-sm">
+                      {item.name}
+                    </a>
+                  </li>
+                )
+            )}
+            <li className="cursor-pointer">
+              <a href="/male-husky">Male</a>
+            </li>
+
+            <li className="cursor-pointer">
+              <a href="/female-husky">Female</a>
+            </li>
           </ul>
         </div>
         <div className="w-1/6 flex flex-col items-center my-4 md:my-0">
