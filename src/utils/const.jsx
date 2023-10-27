@@ -9,8 +9,8 @@ export const imgHome = [
   { id: 5, img: imgC },
 ];
 export const navigation = [
-  { id: 1, name: "Home", href: "#" },
-  { id: 2, name: "About The Breed", href: "#" },
+  { id: 1, name: "Home", href: "/" },
+  { id: 2, name: "About The Breed", href: "/about-breed" },
   { id: 3, name: "Our Dogs", href: "#" },
 ];
 
