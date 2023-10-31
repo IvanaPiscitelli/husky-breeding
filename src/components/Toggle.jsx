@@ -1,9 +1,14 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Toggle = () => {
+  const { i18n } = useTranslation();
+  const isEnglish = i18n.language === "it";
+
   const [isToggle, setIsToggle] = useState(false);
   const toggle = () => {
     setIsToggle(!isToggle);
+    i18n.changeLanguage(isEnglish ? "en" : "it");
   };
 
   return (

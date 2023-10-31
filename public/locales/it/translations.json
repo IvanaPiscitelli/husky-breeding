@@ -8,9 +8,9 @@
   "aboutUsForth": "Facendo parte di questa amata razza abbiamo stretto molte amicizie meravigliose, sentitevi liberi di presentarvi tramite il collegamento del pulsante qui sotto..",
 
   "navigation": {
-    "Home": "Home",
-    "AboutBreed": "Informazioni sulla Razza",
-    "OurDogs:": "I nostri Cani"
+    "home": "Home",
+    "aboutBreed": "Informazioni Razza",
+    "ourDogs:": "I nostri Cani"
   },
   "menuBreedList": {
     "historyText": "La Storia dei Siberian Husky",
@@ -83,8 +83,8 @@
   "contactsTitle": "Contatti",
 
   "recognitions": {
-    "first": "Enci",
-    "second": "Fci",
-    "third": "Akc"
+    "enci": "Enci",
+    "fci": "Fci",
+    "akc": "Akc"
   }
 }

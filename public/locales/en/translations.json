@@ -9,9 +9,9 @@
   "aboutUsForth": "We have made many wonderful friends by being in this beloved breed, feel free to introduce yourselves through the button link below..",
 
   "navigation": {
-    "Home": "Home",
-    "AboutBreed": "About The Breed",
-    "OurDogs:": "Our Dogs"
+    "home": "Home",
+    "aboutBreed": "About The Breed",
+    "ourDogs:": "Our Dogs"
   },
   "menuBreedList": {
     "historyText": "Siberian Husky History",
@@ -78,8 +78,8 @@
   "contactsTitle": "Contacts",
 
   "recognitions": {
-    "first": "Enci",
-    "second": "Fci",
-    "third": "Akc"
+    "enci": "Enci",
+    "fci": "Fci",
+    "akc": "Akc"
   }
 }

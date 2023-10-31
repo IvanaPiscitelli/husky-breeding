@@ -8,7 +8,8 @@ i18n
   .use(I18nextBrowserLanguageDetector)
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
-    fallbackLng: "it",
+    fallbackLng: "en",
+    debug: true,
     backend: {
       loadPath: "/locales/{{lng}}/translations.json",
     },
