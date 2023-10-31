@@ -25,10 +25,6 @@ const Main = () => {
             <h2 className="text-2xl font-bold mb-4">ABOUT US</h2>
             <p>
               We are a Siberian Husky Contea Marullo located in Crotone, Calabria, Italy. <br />
-              <br />
-              Our kennel prefix Cosmos was born from my other passion, astronomy. It also represents that our dogs are
-              part of my cosmos and every single one of them is unique and irreplaceable.
-              <br />
               <br /> My love for the Siberian Husky breed started with a fateful coincidence. After i graduated college
               in 2012 i returned to my home country permanently and was looking to adopt a dog. By chance, we came
               across a blue eyed Siberian Husky that we named Snowbell. We started participating in dog shows and

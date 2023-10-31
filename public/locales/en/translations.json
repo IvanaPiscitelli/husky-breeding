@@ -1,0 +1,85 @@
+{
+  "titleHome": "BREEDING CONTEA MARULLO",
+  "subTitleHome": "Siberian Husky",
+  "textHome": "I'm to produce outstanding dogs in Health, Temperament & Conformation",
+  "aboutUsFirst": "We are a Siberian Husky Contea Marullo located in Crotone, Calabria, Italy.",
+  "aboutUsSecond": "My love for the Siberian Husky breed started with a fateful coincidence. After i graduated college in 2012 i returned to my home country permanently and was looking to adopt a dog. By chance, we came across a blue eyed Siberian Husky that we named Snowbell. We started participating in dog shows and researching on the breed standard, long story short the ball started to roll. Until today, we are still active in breeding in a very limited amount and showing actively.",
+
+  "aboutUsThird": "LOur mission is to educate everyone about the Siberian Husky breed and ensure the owners of our dogs are equipped with knowledge of the breed. Our dogs are first and foremost our family and pets before they are show dogs.",
+  "aboutUsForth": "We have made many wonderful friends by being in this beloved breed, feel free to introduce yourselves through the button link below..",
+
+  "navigation": {
+    "Home": "Home",
+    "AboutBreed": "About The Breed",
+    "OurDogs:": "Our Dogs"
+  },
+  "menuBreedList": {
+    "historyText": "Siberian Husky History",
+    "standardText": "Standard of the Siberian Husky",
+    "defectText": "Defect",
+    "groomingText": "TGrooming",
+    "healthText": "Health",
+    "linksText": "Links"
+  },
+  "generalAppearanceList": {
+    "headTitle": "HEAD",
+    "headText": "Skull region: medium-sized skull, proportionate to the body; slightly rounded on top and narrowing from the widest point to the eyes. Well-defined stop. Muzzle region: black nose in gray-fawn or black dogs, liver in copper-colored dogs; it may be flesh-colored in entirely white dogs. Accepted the pink streaked nose “snow nose”. Muzzle of medium length and width, tapers gradually towards the nose, with neither pointed nor square end. The nasal bridge is straight from the stop to the tip of the nose. Well-pigmented and very tight lips. Jaws - Teeth: scissor closure. Eyes: almond-shaped, moderately spaced and slightly oblique. The eyes can be brown or blue; heterochromia is allowed. Penetrating but friendly expression, interested and never malicious. Ears: medium-sized, triangular, close together and set high on the head. They are thick, well-furred, slightly arched in the back and standing erect with slightly rounded tips pointing upwards.",
+    "neckTitle": "NECK",
+    "neckText": "Medium length, arched and proudly carried erect in stance. In movement, at a trot, the neck is extended so that the head is carried slightly forward.",
+    "bodyTitle": "BODY",
+    "bodyText": "Back straight and strong, with a horizontal topline from the withers to the croup. Medium length, neither “cobby” nor slack because excessively long. Loin tense and dry, narrower than the chest, and slightly retracted. Croup sloped relative to the spine, but never so hollowed to limit the thrust of the hindquarters. Chest deep and strong but not too broad, with the lowest point at the elbow level. The ribs are well sprung near the spine but flattened on the sides to allow free movement.",
+    "tailTitle": "TAIL",
+    "tailText": "Rich, brush-like fox tail, set just below the level of the topline and carried on the back in a graceful sickle curve when the dog is attentive. When carried high it does not curl on the sides nor flattens on the back. For the resting dog a low tail is normal. The hair of the tail is of medium length, and about the same length above, on the sides and below, with the appearance of a round brush.",
+    "foreLimbs": "FORE LIMBS",
+    "foreLimbsText": "In stance, and viewed from the front, the limbs are moderately spaced, parallel and straight. The bone is of substance but never heavy. The length of the limbs from the elbow to the ground is slightly greater than the distance from the elbow to the tip of the withers. The forelimb spurs may be removed. Shoulder and arm: the scapula is well sloped. Arm slightly slanted back from the tip of the shoulder to the elbow, and is never perpendicular to the ground. The muscles and ligaments between the shoulder and the rib cage are firm and well developed. Elbows: close to the body and not deviated outward or inward. Carpus: strong, but flexible. Metacarpi: viewed from the side are slightly inclined.",
+    "hindLimbs": "HIND LIMBS",
+    "hindLimbsText": "In stance, viewed from behind, the hind limbs are moderately spaced and parallel. The spurs, if any, must be removed. Thigh: very muscular and powerful. Knee: well angled. Hock: well defined and lowered.",
+    "feetTitle": "FEET",
+    "feetText": "Oval but not long. They are of medium size, compact and with a lot of hair between the toes and the pads that are hard and thick. In stance the feet must not be deviated outward or inward."
+  },
+  "defectList": {
+    "skullTitle": "SKULL",
+    "skullText": "Rough or heavy head, head chiseled too finely",
+    "stopTitle": "STOP",
+    "stopText": "Insufficient",
+    "muzzleTitle": "MUZZLE",
+    "muzzleText": "Too pointed or too coarse, too short or too long",
+    "teethTitle": "TEETH",
+    "teethText": "Any closure other than scissors",
+    "eyesTitle": "EYES",
+    "eyesText": "Set too obliquely or too close",
+    "neckTitle": "NECK",
+    "neckText": "Too short and thick, too long",
+    "bridgeTitle": "BACK",
+    "bridgeText": "Weak or yielding, carp back, descending topline",
+    "chestTitle": "CHEST",
+    "chestText": "Too wide, “barrel”, ribs too flat or weak",
+    "tailTitle": "TAIL",
+    "tailText": "Resting on the back or rolled, very fringed, set too high or too low",
+    "shoulderTitle": "SHOULDERS",
+    "shoulderText": "Straight, floating",
+    "forelimbsTitle": "FORE LIMBS",
+    "forelimbsText": "Weak metacarpi, bone too heavy, forelimbs too closed or too open, elbows out",
+    "hindLimbTitle": "HIND LIMBS",
+    "hindLimbText": "Straight knee, hocks cow, dog with hindquarters too closed or too open",
+    "feetTitle": "FEET",
+    "feetText": "Yielding or with open toes, too big or of ugly shape, too small or delicate, facing outward or inward",
+    "movementTitle": "MOVEMENT",
+    "movementText": "Short, hopping, limbs moving in jerks outward, heavy or rolling gait, crossing step or crab gait",
+    "coatTitle": "COAT",
+    "coatText": "Long hair, rough or bristly, texture too hard or too silky, hair trimmed, except where allowed",
+    "eliminatingFault": "ELIMINATING FAULTS",
+    "eliminatingFaultText": "Males taller than 60 cm and females taller than 56 cm. \n N.B. Males must have two apparently normal testicles, fully descended into the scrotum."
+  },
+  "recognitionsTitle": "Recognitions",
+  "pagesTitle": "Pages",
+  "maleTitle": "Male",
+  "femaleTitle": "Female",
+  "contactsTitle": "Contacts",
+
+  "recognitions": {
+    "first": "Enci",
+    "second": "Fci",
+    "third": "Akc"
+  }
+}
