@@ -16,7 +16,7 @@ const AboutBreed = () => {
     <div id="top" className="bg-gray-100 py-24 text-center">
       {/* MENU LIST */}
 
-      <ul className="flex flex-col mx-auto max-w-7xl md:max-w-lg lg:max-w-2xl xl:max-w-4xl px-10 items-start cursor-pointer pt-12 transition-all list-disc">
+      <ul className="flex flex-col mx-auto max-w-7xl md:max-w-lg lg:max-w-2xl xl:max-w-4xl px-8 items-start cursor-pointer pt-12 transition-all list-disc">
         {menuBreedList.map((list) => (
           <li key={list.id} className="font-bold text-gray-700 hover:text-[#0d98b8]">
             <a href={`#${list.id}`}>{t(`menuBreedList.${list.text}`)}</a>

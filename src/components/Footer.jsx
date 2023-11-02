@@ -33,11 +33,15 @@ const Footer = () => {
                 )
             )}
             <li className="cursor-pointer">
-              <a href="/male-husky">{t("maleTitle")}</a>
+              <a href="/male-husky" className="text-sm">
+                {t("maleTitle")}
+              </a>
             </li>
 
             <li className="cursor-pointer">
-              <a href="/female-husky">{t("femaleTitle")}</a>
+              <a href="/female-husky" className="text-sm">
+                {t("femaleTitle")}
+              </a>
             </li>
           </ul>
         </div>
@@ -45,7 +49,7 @@ const Footer = () => {
           <h3 className="text-lg font-bold mb-2">{t("contactsTitle")}</h3>
           <ul className="flex space-x-4 w-32 cursor-pointer transition-all justify-center">
             {social.map((item) => (
-              <a key={item.id} href={item.href} className={`${item.icon}-icon block`}>
+              <a key={item.id} href={item.href} className={`${item.icon}-icon block text-sm`}>
                 {item.name}
               </a>
             ))}

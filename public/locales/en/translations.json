@@ -15,8 +15,8 @@
     "ourDogs": "Our Dogs"
   },
   "backToTop": "Back to top",
-  "officialBreedStandard": "Official Breed Standard",
-  "illustratedStandard": "Illustrated Standard",
+  "officialBreedStandard": "OFFICIAL BREED STANDARD",
+  "illustratedStandard": "ILLUSTRATED STANDARD",
   "healthParagraph": "The Siberian Husky is subject to a number of inherited diseases of the eye, including cataracts, corneal dystrophy, progressive retinal atrophy, and glaucoma. Given the wide array of possible eye conditions, regular eye examinations at the veterinarian’s office are in order. Many of these conditions are not treatable, although some may be amenable to surgery. Dogs with progressive retinal atrophy should not be bred. The Siberian Husky can also be prone to epilepsy and seizures. Drugs can be used to control these seizures, and again genetically predisposed dogs should not be used in breeding. Hip Dysplasia is not often found in this breed; however, as with many medium or larger-sized canines, it can occur. The Orthopedic Foundation of Animals currently has the Siberian Husky ranked 155th out of a possible 160 breeds at risk for hip dysplasia, with only two percent of tested Siberian Huskies showing dysplasia.",
   "groomingParagraph": "Unlike many breeds the Siberian Husky has retained its original naturally functional coat. As a result the husky coat needs very minimal grooming. Brushing about twice a week will remove any loose hairs and provide an opportunity to check for fleas etc. Generally huskies require very little bathing unless they have gotten particularly dirty, usually a few times a year is sufficient. The main challenge with a huskies coat is dealing with shedding. Huskies have a double coat of hair, an undercoat and an outer coat. Approximately twice a year, depending on your climate, a husky will blow or shed its undercoat. This can last for about three weeks or more and a huge quantity of hair is lost in this time. The hair falls out in clumps, sometimes large clumps and so daily brushing is required to remove the hair that is falling out. The shedding will usually start on the legs and thighs and then progress the body and finish up with the britches and tail area. Sometimes a warm bath can help to loosen up hair during shedding season and make it easier to brush out. Do not underestimate the amount of fur that will be lost during a huskies shedding. If you do not want hairs on your furniture, clothes etc. then a husky is not the right breed for you.",
   "defectParagraph": "Any deviation must be considered a defect, and the severity with which it is considered is exactly proportional to its gravity.",
@@ -28,12 +28,12 @@
   "subImgCaption": "Leonhard Seppala with sled dogs from his kennels. From left to right - Togo, Karinsky, Jafet, Pete, unknown dog, Fritz",
 
   "menuBreedList": {
-    "historyText": "Siberian Husky History",
-    "standardText": "Standard of the Siberian Husky",
-    "defectText": "Defect",
-    "groomingText": "Grooming",
-    "healthText": "Health",
-    "linksText": "Links"
+    "historyText": "SIBERIAN HUSKY HISTORY",
+    "standardText": "SIBERIAN HUSKY STANDARD",
+    "defectText": "DEFECT",
+    "groomingText": "GROOMING",
+    "healthText": "HEALTH",
+    "linksText": "LINKS"
   },
   "generalAppearanceList": {
     "headTitle": "HEAD",
