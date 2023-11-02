@@ -1,5 +1,7 @@
 // import hero from "../assets/michele_hero.jpeg";
-import hero from "../assets/husky_hero_background.jpg";
+// import hero from "../assets/husky_hero_background.jpg";
+// import hero from "../assets/piHeroPuppyM.jpeg";
+import hero from "../assets/picHeroM.jpeg";
 import { Carousel } from "@material-tailwind/react";
 import { imgHome } from "../utils/const";
 import { useTranslation } from "react-i18next";
