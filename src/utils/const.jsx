@@ -1,4 +1,6 @@
 import imgC from "../assets/img_carousel.jpg";
+import imgProfileCard from "../assets/ImageCard.jpeg";
+import imgVCard from "../assets/imgVCard.jpeg";
 import { LiaInstagram, LiaFacebook } from "react-icons/lia";
 
 export const imgHome = [
@@ -8,6 +10,82 @@ export const imgHome = [
   { id: 4, img: imgC },
   { id: 5, img: imgC },
 ];
+
+export const imgCard = [
+  {
+    id: 1,
+    src: imgProfileCard,
+    alt: "Immagine 1",
+    text: "Clint – BIS Am Gch Ina Ch. Kristari’s A Fistful of Dollars at Michele Marullo",
+  },
+  {
+    id: 2,
+    src: imgVCard,
+    alt: "Immagine 2",
+    text: "Clint – BIS Am Gch Ina Ch. Kristari’s A Fistful of Dollars at Michele Marullo",
+  },
+  {
+    id: 3,
+    src: imgProfileCard,
+    alt: "Immagine 3",
+    text: "Clint – BIS Am Gch Ina Ch. Kristari’s A Fistful of Dollars at Michele Marullo",
+  },
+  {
+    id: 4,
+    src: imgVCard,
+    alt: "Immagine 4",
+    text: "Clint – BIS Am Gch Ina Ch. Kristari’s A Fistful of Dollars at Michele Marullo",
+  },
+  {
+    id: 5,
+    src: imgProfileCard,
+    alt: "Immagine 5",
+    text: "Clint – BIS Am Gch Ina Ch. Kristari’s A Fistful of Dollars at Michele Marullo",
+  },
+  {
+    id: 6,
+    src: imgVCard,
+    alt: "Immagine 6",
+    text: "Clint – BIS Am Gch Ina Ch. Kristari’s A Fistful of Dollars at Michele Marullo",
+  },
+  {
+    id: 7,
+    src: imgProfileCard,
+    alt: "Immagine 1",
+    text: "Clint – BIS Am Gch Ina Ch. Kristari’s A Fistful of Dollars at Michele Marullo",
+  },
+  {
+    id: 8,
+    src: imgVCard,
+    alt: "Immagine 2",
+    text: "Clint – BIS Am Gch Ina Ch. Kristari’s A Fistful of Dollars at Michele Marullo",
+  },
+  {
+    id: 9,
+    src: imgProfileCard,
+    alt: "Immagine 3",
+    text: "Clint – BIS Am Gch Ina Ch. Kristari’s A Fistful of Dollars at Michele Marullo",
+  },
+  {
+    id: 10,
+    src: imgVCard,
+    alt: "Immagine 4",
+    text: "Clint – BIS Am Gch Ina Ch. Kristari’s A Fistful of Dollars at Michele Marullo",
+  },
+  {
+    id: 11,
+    src: imgProfileCard,
+    alt: "Immagine 5",
+    text: "Clint – BIS Am Gch Ina Ch. Kristari’s A Fistful of Dollars at Michele Marullo",
+  },
+  {
+    id: 12,
+    src: imgVCard,
+    alt: "Immagine 6",
+    text: "Clint – BIS Am Gch Ina Ch. Kristari’s A Fistful of Dollars at Michele Marullo",
+  },
+];
+
 export const navigation = [
   { id: 1, name: "home", href: "/" },
   { id: 2, name: "aboutBreed", href: "/about-breed" },
