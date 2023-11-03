@@ -1,4 +1,7 @@
+import { useTranslation } from "react-i18next";
+
 const Card = ({ imageSrc, imageAlt, name, title, text }) => {
+  const { t } = useTranslation();
   return (
     <div className="relative flex max-w-sm flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
       <div className="relative mx-4 mt-4 h-96 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
@@ -22,7 +25,7 @@ const Card = ({ imageSrc, imageAlt, name, title, text }) => {
       <div className="p-6 pt-0">
         <button className="btn group flex items-center bg-transparent p-2 px-6 text-xl font-thin tracking-widest text-gray-700">
           <span className="relative pr-4 pb-1 text-gray-700 after:transition-transform after:duration-500 after:ease-out after:absolute after:bottom-0 after:left-0 after:block after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-[#0d98b8] after:content-[''] after:group-hover:origin-bottom-left after:group-hover:scale-x-100">
-            Show more
+            {t("buttonCardText")}
           </span>
           <svg
             viewBox="0 0 46 16"
