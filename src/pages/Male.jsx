@@ -1,9 +1,14 @@
 import { useTranslation } from "react-i18next";
 import Card from "../components/Card";
 import { imgCard } from "../utils/const";
+import { useNavigate } from "react-router-dom";
 
 const Male = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const goToDetailsPage = (dogId) => {
+    navigate(`/male-husky/${dogId}`);
+  };
   return (
     <>
       <h1 className="flex items-center font-bold text-xl text-[#0d98b8] justify-center pb-8 pt-20 lg:pt-28">
@@ -18,6 +23,7 @@ const Male = () => {
             text={card.text}
             name={card.name}
             title={card.title}
+            onGoToDetailsPage={() => goToDetailsPage(card.id)}
           />
         ))}
       </div>
