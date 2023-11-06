@@ -167,12 +167,12 @@ const AboutBreed = () => {
         className="grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2 gap-8 text-center lg:text-left pt-20"
       >
         <div className="max-w-full my-auto px-10">
-          <h2 className="text-2xl text-[#0d98b8] font-bold mb-4 inline-block">{t("officialBreedStandard")}: </h2>
-          <a href="https://www.shca.org/the-siberian-husky-standard" className="inline-block underline ml-2">
+          <h2 className="text-2xl text-[#0d98b8] font-bold mb-4 block">{t("officialBreedStandard")}</h2>
+          <a href="https://www.shca.org/the-siberian-husky-standard" className="block underline ml-2">
             Official Breed Standard
           </a>
-          <h2 className="text-2xl text-[#0d98b8] font-bold mb-4 inline-block">{t("illustratedStandard")}: </h2>
-          <a href="https://www.shca.org/illustrated-standard-1" className="inline-block underline ml-2">
+          <h2 className="text-2xl text-[#0d98b8] font-bold my-4 block">{t("illustratedStandard")} </h2>
+          <a href="https://www.shca.org/illustrated-standard-1" className="block underline ml-2">
             Illustrated Siberian Husky Standard
           </a>
           <div className="pt-6 hidden lg:block">
