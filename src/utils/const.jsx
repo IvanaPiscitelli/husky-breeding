@@ -11,6 +11,15 @@ export const imgHome = [
   { id: 5, img: imgC },
 ];
 
+export const imgDetails = [
+  { id: 1, img: imgC },
+  {
+    id: 2,
+    img: imgProfileCard,
+  },
+  { id: 3, img: imgVCard },
+];
+
 export const imgCard = [
   {
     id: 1,
