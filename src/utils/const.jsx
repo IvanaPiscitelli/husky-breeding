@@ -1,6 +1,10 @@
 import imgC from "../assets/img_carousel.jpg";
 import imgProfileCard from "../assets/ImageCard.jpeg";
 import imgVCard from "../assets/imgVCard.jpeg";
+import firstImgDetails from "../assets/FirstImageDetails.jpg";
+import secondImgDetails from "../assets/SecondImageDetails.jpg";
+import thirdImgDetails from "../assets/ThirdImageDetails.jpg";
+import forthImgDetails from "../assets/ForthImageDetails.jpg";
 import { LiaInstagram, LiaFacebook } from "react-icons/lia";
 
 export const imgHome = [
@@ -12,12 +16,13 @@ export const imgHome = [
 ];
 
 export const imgDetails = [
-  { id: 1, img: imgC },
+  { id: 1, img: firstImgDetails },
   {
     id: 2,
-    img: imgProfileCard,
+    img: secondImgDetails,
   },
-  { id: 3, img: imgVCard },
+  { id: 3, img: thirdImgDetails },
+  { id: 4, img: forthImgDetails },
 ];
 
 export const imgCard = [
