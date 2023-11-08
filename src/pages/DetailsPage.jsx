@@ -7,6 +7,49 @@ const DetailsPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { dogId } = useParams();
+  const [visibleIndex, setVisibleIndex] = useState(0);
+
+  const maxVisibleThumbnails = 4; // Numero massimo di miniature visibili contemporaneamente
+  const totalThumbnails = imgDetails.length; // Numero totale di miniature
+
+  // Gestisce il click su una miniatura
+  const handleThumbnailClick = (index) => {
+    setImage(imgDetails[index].img);
+
+    // Scorrimento verso il basso (verso la fine dell'array)
+    if (index === visibleIndex && index > 0) {
+      setVisibleIndex(visibleIndex - 1);
+    }
+    // Scorrimento verso l'alto (verso l'inizio dell'array)
+    else if (index === visibleIndex + maxVisibleThumbnails - 1 && index < totalThumbnails - 1) {
+      setVisibleIndex(visibleIndex + 1);
+    }
+
+    // Avvolge dall'ultima alla prima miniatura
+    if (index === totalThumbnails - 1 && visibleIndex + maxVisibleThumbnails === totalThumbnails) {
+      setVisibleIndex(0);
+    }
+    // Avvolge dalla prima all'ultima miniatura
+    else if (index === 0 && visibleIndex === 0) {
+      setVisibleIndex(totalThumbnails - maxVisibleThumbnails);
+    }
+  };
+
+  // Calcola le miniature visibili per lo scorrimento infinito
+  let visibleThumbnails = [];
+  for (let i = 0; i < maxVisibleThumbnails; i++) {
+    visibleThumbnails.push(imgDetails[(visibleIndex + i) % totalThumbnails]);
+  }
+
+  const scrollIntervalTime = 5000; // Tempo in millisecondi per lo scorrimento automatico
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisibleIndex((prevIndex) => (prevIndex + 1) % totalThumbnails);
+    }, scrollIntervalTime);
+
+    return () => clearInterval(interval); // Pulizia dell'intervallo quando il componente viene smontato
+  }, [totalThumbnails]);
 
   useEffect(() => {
     // Quando il componente viene smontato (l'utente naviga via), sostituisco lo stato con una route che non ha parametri.
@@ -27,7 +70,7 @@ const DetailsPage = () => {
         {/* Contenitore per le miniature */}
         <div className="flex flex-row">
           <div className="flex flex-col mr-[1.3rem]">
-            {imgDetails.map((img, index) => {
+            {visibleThumbnails.map((img, index) => {
               // Condizione per mostrare solo le prime 3 miniature su dispositivi mobili
               const showOnMobile = index < 3;
               // Condizione per mostrare la quarta miniatura solo su schermi più grandi (es. da tablet in su)
@@ -39,7 +82,7 @@ const DetailsPage = () => {
                   className={`mb-2 ${showOnMobile ? "block" : "hidden"} ${showFourthOnTabletUp} lg:mb-4`}
                 >
                   <button
-                    onClick={() => setImage(img.img)}
+                    onClick={() => handleThumbnailClick((visibleIndex + index) % totalThumbnails)}
                     className={`w-16 h-16 sm:w-24 sm:h-24 rounded-lg bg-gray-100 flex items-center justify-center overflow-hidden ${
                       image === img.img ? "ring-2 ring-indigo-300 ring-inset" : ""
                     }`}
