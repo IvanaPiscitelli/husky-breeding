@@ -27,18 +27,28 @@ const DetailsPage = () => {
         {/* Contenitore per le miniature */}
         <div className="flex flex-row">
           <div className="flex flex-col mr-[1.3rem]">
-            {imgDetails.map((img, index) => (
-              <div key={img.id} className="mb-6">
-                <button
-                  onClick={() => setImage(img.img)}
-                  className={`focus:outline-none w-16 h-16 rounded-lg bg-gray-100 flex items-start justify-center ${
-                    image === img.img ? "ring-2 ring-indigo-300 ring-inset" : ""
-                  }`}
+            {imgDetails.map((img, index) => {
+              // Condizione per mostrare solo le prime 3 miniature su dispositivi mobili
+              const showOnMobile = index < 3;
+              // Condizione per mostrare la quarta miniatura solo su schermi più grandi (es. da tablet in su)
+              const showFourthOnTabletUp = index < 4 ? "md:block" : "md:hidden";
+
+              return (
+                <div
+                  key={img.id}
+                  className={`mb-2 ${showOnMobile ? "block" : "hidden"} ${showFourthOnTabletUp} lg:mb-4`}
                 >
-                  <img src={img.img} alt={`Thumbnail ${index}`} className="object-cover rounded-lg" />
-                </button>
-              </div>
-            ))}
+                  <button
+                    onClick={() => setImage(img.img)}
+                    className={`w-16 h-16 sm:w-24 sm:h-24 rounded-lg bg-gray-100 flex items-center justify-center overflow-hidden ${
+                      image === img.img ? "ring-2 ring-indigo-300 ring-inset" : ""
+                    }`}
+                  >
+                    <img src={img.img} alt={`Thumbnail ${index}`} className="object-cover rounded-lg" />
+                  </button>
+                </div>
+              );
+            })}
           </div>
           {/* Contenitore per l'immagine principale */}
           <div className="flex-1">
@@ -48,7 +58,7 @@ const DetailsPage = () => {
           </div>
         </div>
         {/* Contenitore per il testo */}
-        <div className="flex-1 px-4 mx-auto">
+        <div className="flex-1 mt-6 mx-auto">
           <h2 className="mb-4 leading-tight tracking-tight font-bold text-gray-800 text-2xl lg:text-3xl">
             Sunday – Ch. Cosmos Septimo Dia
           </h2>
