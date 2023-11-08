@@ -8,13 +8,16 @@ const DetailsPage = () => {
   const location = useLocation();
   const { dogId } = useParams();
   const [visibleIndex, setVisibleIndex] = useState(0);
+  const [slideInterval, setSlideInterval] = useState(null);
 
   const maxVisibleThumbnails = 4; // Numero massimo di miniature visibili contemporaneamente
   const totalThumbnails = imgDetails.length; // Numero totale di miniature
+  const scrollIntervalTime = 3500; // Tempo in millisecondi per lo scorrimento automatico
 
-  // Gestisce il click su una miniatura
-  const handleThumbnailClick = (index) => {
-    setImage(imgDetails[index].img);
+  // Crea una funzione per aggiornare l'immagine e resettare l'intervallo
+  const updateImageAndResetInterval = (newImage, index) => {
+    // Imposta la nuova immagine
+    setImage(newImage);
 
     // Scorrimento verso il basso (verso la fine dell'array)
     if (index === visibleIndex && index > 0) {
@@ -33,22 +36,35 @@ const DetailsPage = () => {
     else if (index === 0 && visibleIndex === 0) {
       setVisibleIndex(totalThumbnails - maxVisibleThumbnails);
     }
+
+    // Resettare l'intervallo
+    if (slideInterval) clearInterval(slideInterval);
+
+    // Imposta un nuovo intervallo e aggiorna lo stato
+    const newInterval = setInterval(() => {
+      setVisibleIndex((prevIndex) => (prevIndex + 1) % totalThumbnails);
+    }, scrollIntervalTime);
+    setSlideInterval(newInterval);
   };
 
   // Calcola le miniature visibili per lo scorrimento infinito
-  let visibleThumbnails = [];
+  const visibleThumbnails = [];
   for (let i = 0; i < maxVisibleThumbnails; i++) {
     visibleThumbnails.push(imgDetails[(visibleIndex + i) % totalThumbnails]);
   }
-
-  const scrollIntervalTime = 5000; // Tempo in millisecondi per lo scorrimento automatico
 
   useEffect(() => {
     const interval = setInterval(() => {
       setVisibleIndex((prevIndex) => (prevIndex + 1) % totalThumbnails);
     }, scrollIntervalTime);
 
-    return () => clearInterval(interval); // Pulizia dell'intervallo quando il componente viene smontato
+    // Salva l'intervallo nello stato
+    setSlideInterval(interval);
+
+    // Assicurati di cancellare l'intervallo quando il componente viene smontato
+    return () => {
+      if (interval) clearInterval(interval);
+    };
   }, [totalThumbnails]);
 
   useEffect(() => {
@@ -69,7 +85,7 @@ const DetailsPage = () => {
       <div className="flex flex-col lg:flex-row -mx-4">
         {/* Contenitore per le miniature */}
         <div className="flex flex-row">
-          <div className="flex flex-col mr-[1.3rem]">
+          <div className="flex flex-col mr-[1.3rem] transition transform duration-1000 ease-in-out">
             {visibleThumbnails.map((img, index) => {
               // Condizione per mostrare solo le prime 3 miniature su dispositivi mobili
               const showOnMobile = index < 3;
@@ -82,7 +98,7 @@ const DetailsPage = () => {
                   className={`mb-2 ${showOnMobile ? "block" : "hidden"} ${showFourthOnTabletUp} lg:mb-4`}
                 >
                   <button
-                    onClick={() => handleThumbnailClick((visibleIndex + index) % totalThumbnails)}
+                    onClick={() => updateImageAndResetInterval(img.img, (visibleIndex + index) % totalThumbnails)}
                     className={`w-16 h-16 sm:w-24 sm:h-24 rounded-lg bg-gray-100 flex items-center justify-center overflow-hidden ${
                       image === img.img ? "ring-2 ring-indigo-300 ring-inset" : ""
                     }`}
