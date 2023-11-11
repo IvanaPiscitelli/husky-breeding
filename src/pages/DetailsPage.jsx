@@ -1,31 +1,56 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { imgDetails } from "../utils/const";
 
 const DetailsPage = () => {
   const [image, setImage] = useState(imgDetails[0].img);
-  const [visibleThumbnails, setVisibleThumbnails] = useState(imgDetails.slice(0, 4));
+  const [visibleIndex, setVisibleIndex] = useState(0);
 
   const navigate = useNavigate();
   const location = useLocation();
   const { dogId } = useParams();
 
+  const intervalRef = useRef(null); // Ref to store the interval ID
+
+  const maxVisibleThumbnails = 4; // Maximum number of thumbnails visible at once
   const scrollIntervalTime = 3500; // Interval time in milliseconds
 
-  // Rotate the thumbnails, creating an infinite loop effect
-  const rotateThumbnails = () => {
-    setVisibleThumbnails((prevThumbnails) => {
-      // Remove the first thumbnail and add it to the end
-      return [...prevThumbnails.slice(1), ...prevThumbnails.slice(0, 1)];
+  // Calculate the set of visible thumbnails
+  const visibleThumbnails = imgDetails
+    .slice(visibleIndex, visibleIndex + maxVisibleThumbnails)
+    .concat(imgDetails.slice(0, Math.max(0, visibleIndex + maxVisibleThumbnails - imgDetails.length)));
+
+  const moveThumbnails = (direction) => {
+    setVisibleIndex((prevIndex) => {
+      if (direction === "up") {
+        return (prevIndex - 1 + imgDetails.length) % imgDetails.length;
+      } else {
+        return (prevIndex + 1) % imgDetails.length;
+      }
     });
+    restartSliding(); // Restart the automatic sliding after a manual change
   };
 
+  // Function to rotate thumbnails automatically
+  const rotateThumbnails = () => {
+    setVisibleIndex((prevIndex) => (prevIndex + 1) % imgDetails.length);
+  };
+
+  // Function to restart the automatic sliding
+  const restartSliding = () => {
+    clearInterval(intervalRef.current); // Clear existing interval
+    intervalRef.current = setInterval(rotateThumbnails, scrollIntervalTime); // Set up a new interval
+  };
+
+  // Effect for auto-rotating thumbnails
   useEffect(() => {
     const interval = setInterval(() => {
-      rotateThumbnails();
+      moveThumbnails("down"); // Move down automatically
     }, scrollIntervalTime);
+    intervalRef.current = interval; // Store the interval ID
 
     return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -38,7 +63,11 @@ const DetailsPage = () => {
   }, [location.pathname, navigate, dogId]);
 
   return (
-    <div className="container mx-auto py-32 px-16">
+    <div className="container mx-auto py-32 px-12">
+      {/* Up Arrow */}
+      <button onClick={() => moveThumbnails("up")} className="ml-[0.65rem] md:ml-7 mb-2">
+        &#8593;
+      </button>
       {/* Contenitore principale con flex che avvolge tutto */}
       <div className="flex flex-col lg:flex-row -mx-4">
         {/* Contenitore per le miniature */}
@@ -64,6 +93,11 @@ const DetailsPage = () => {
                 </div>
               );
             })}
+
+            {/* Down Arrow */}
+            <button onClick={() => moveThumbnails("down")} className="self-center mr-[0.05rem] md:mr-1">
+              &#8595;
+            </button>
           </div>
           {/* Contenitore per l'immagine principale */}
           <div className="flex-1">
