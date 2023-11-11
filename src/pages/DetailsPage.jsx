@@ -4,44 +4,29 @@ import { imgDetails } from "../utils/const";
 
 const DetailsPage = () => {
   const [image, setImage] = useState(imgDetails[0].img);
-  const [visibleIndex, setVisibleIndex] = useState(0);
+  const [visibleThumbnails, setVisibleThumbnails] = useState(imgDetails.slice(0, 4));
 
   const navigate = useNavigate();
   const location = useLocation();
   const { dogId } = useParams();
 
-  const maxVisibleThumbnails = 4; // Numero massimo di miniature visibili contemporaneamente
-  const totalThumbnails = imgDetails.length; // Numero totale di miniature
   const scrollIntervalTime = 3500; // Interval time in milliseconds
 
-  // Create a function to update the image and reset the interval
-  const updateImageAndResetInterval = (newImage, index) => {
-    setImage(newImage);
-
-    // Ensure the index is within bounds and set it
-    const newIndex = index % totalThumbnails;
-    setVisibleIndex(newIndex);
-
-    // If we're at the end of the thumbnails, reset to start
-    if (newIndex === totalThumbnails - 1) {
-      setTimeout(() => setVisibleIndex(0), scrollIntervalTime);
-    }
+  // Rotate the thumbnails, creating an infinite loop effect
+  const rotateThumbnails = () => {
+    setVisibleThumbnails((prevThumbnails) => {
+      // Remove the first thumbnail and add it to the end
+      return [...prevThumbnails.slice(1), ...prevThumbnails.slice(0, 1)];
+    });
   };
 
-  // Calculate visible thumbnails for the sliding animation
-  const visibleThumbnails = [];
-  for (let i = 0; i < maxVisibleThumbnails; i++) {
-    visibleThumbnails.push(imgDetails[(visibleIndex + i) % totalThumbnails]);
-  }
-
   useEffect(() => {
-    // Automatically advance the thumbnails every 3.5 seconds
     const interval = setInterval(() => {
-      setVisibleIndex((prevIndex) => (prevIndex + 1) % totalThumbnails);
+      rotateThumbnails();
     }, scrollIntervalTime);
 
     return () => clearInterval(interval);
-  }, [totalThumbnails]);
+  }, []);
 
   useEffect(() => {
     // Redirect logic when the component unmounts or the dogId changes
@@ -58,7 +43,7 @@ const DetailsPage = () => {
       <div className="flex flex-col lg:flex-row -mx-4">
         {/* Contenitore per le miniature */}
         <div className="flex flex-row">
-          <div className="flex flex-col mr-[1.3rem] transition-all duration-1000 ease-in-out">
+          <div className="flex flex-col mr-[1.3rem] transition-transform duration-1000 ease-in-out">
             {visibleThumbnails.map((img, index) => {
               // Condizione per mostrare solo le prime 3 miniature su dispositivi mobili
               const showOnMobile = index < 3;
@@ -71,7 +56,7 @@ const DetailsPage = () => {
                   className={`mb-2 ${showOnMobile ? "block" : "hidden"} ${showFourthOnTabletUp} lg:mb-4`}
                 >
                   <button
-                    onClick={() => updateImageAndResetInterval(img.img, visibleIndex + index)}
+                    onClick={() => setImage(img.img)}
                     className="w-16 h-16 sm:w-24 sm:h-24 rounded-lg bg-gray-100 flex items-center justify-center overflow-hidden"
                   >
                     <img src={img.img} alt={`Thumbnail ${index}`} className="object-cover rounded-lg" />

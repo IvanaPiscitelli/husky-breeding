@@ -71,3 +71,18 @@
 #toggle:checked + .block .dot {
   transform: translateX(100%);
 }
+
+/* Sliding */
+@keyframes slide {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-100%);
+  }
+}
+
+.animate-slide {
+  animation: slide 2s ease-in-out infinite;
+}
