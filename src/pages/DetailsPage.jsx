@@ -4,80 +4,53 @@ import { imgDetails } from "../utils/const";
 
 const DetailsPage = () => {
   const [image, setImage] = useState(imgDetails[0].img);
+  const [visibleIndex, setVisibleIndex] = useState(0);
+
   const navigate = useNavigate();
   const location = useLocation();
   const { dogId } = useParams();
-  const [visibleIndex, setVisibleIndex] = useState(0);
-  const [slideInterval, setSlideInterval] = useState(null);
 
   const maxVisibleThumbnails = 4; // Numero massimo di miniature visibili contemporaneamente
   const totalThumbnails = imgDetails.length; // Numero totale di miniature
-  const scrollIntervalTime = 3500; // Tempo in millisecondi per lo scorrimento automatico
+  const scrollIntervalTime = 3500; // Interval time in milliseconds
 
-  // Crea una funzione per aggiornare l'immagine e resettare l'intervallo
+  // Create a function to update the image and reset the interval
   const updateImageAndResetInterval = (newImage, index) => {
-    // Imposta la nuova immagine
     setImage(newImage);
 
-    // Scorrimento verso il basso (verso la fine dell'array)
-    if (index === visibleIndex && index > 0) {
-      setVisibleIndex(visibleIndex - 1);
-    }
-    // Scorrimento verso l'alto (verso l'inizio dell'array)
-    else if (index === visibleIndex + maxVisibleThumbnails - 1 && index < totalThumbnails - 1) {
-      setVisibleIndex(visibleIndex + 1);
-    }
+    // Ensure the index is within bounds and set it
+    const newIndex = index % totalThumbnails;
+    setVisibleIndex(newIndex);
 
-    // Avvolge dall'ultima alla prima miniatura
-    if (index === totalThumbnails - 1 && visibleIndex + maxVisibleThumbnails === totalThumbnails) {
-      setVisibleIndex(0);
+    // If we're at the end of the thumbnails, reset to start
+    if (newIndex === totalThumbnails - 1) {
+      setTimeout(() => setVisibleIndex(0), scrollIntervalTime);
     }
-    // Avvolge dalla prima all'ultima miniatura
-    else if (index === 0 && visibleIndex === 0) {
-      setVisibleIndex(totalThumbnails - maxVisibleThumbnails);
-    }
-
-    // Resettare l'intervallo
-    if (slideInterval) clearInterval(slideInterval);
-
-    // Imposta un nuovo intervallo e aggiorna lo stato
-    const newInterval = setInterval(() => {
-      setVisibleIndex((prevIndex) => (prevIndex + 1) % totalThumbnails);
-    }, scrollIntervalTime);
-    setSlideInterval(newInterval);
   };
 
-  // Calcola le miniature visibili per lo scorrimento infinito
+  // Calculate visible thumbnails for the sliding animation
   const visibleThumbnails = [];
   for (let i = 0; i < maxVisibleThumbnails; i++) {
     visibleThumbnails.push(imgDetails[(visibleIndex + i) % totalThumbnails]);
   }
 
   useEffect(() => {
+    // Automatically advance the thumbnails every 3.5 seconds
     const interval = setInterval(() => {
       setVisibleIndex((prevIndex) => (prevIndex + 1) % totalThumbnails);
     }, scrollIntervalTime);
 
-    // Salva l'intervallo nello stato
-    setSlideInterval(interval);
-
-    // Assicurati di cancellare l'intervallo quando il componente viene smontato
-    return () => {
-      if (interval) clearInterval(interval);
-    };
+    return () => clearInterval(interval);
   }, [totalThumbnails]);
 
   useEffect(() => {
-    // Quando il componente viene smontato (l'utente naviga via), sostituisco lo stato con una route che non ha parametri.
+    // Redirect logic when the component unmounts or the dogId changes
     return () => {
-      // Questo verrà eseguito quando il componente viene smontato
-
       if (!dogId) {
-        if (location.pathname.includes("/female-husky")) navigate("/female-husky", { replace: true });
-        if (location.pathname.includes("/male-husky")) navigate("/male-husky", { replace: true });
+        navigate(location.pathname.includes("/female-husky") ? "/female-husky" : "/male-husky", { replace: true });
       }
     };
-  }, [location, navigate, dogId]);
+  }, [location.pathname, navigate, dogId]);
 
   return (
     <div className="container mx-auto py-32 px-16">
@@ -85,7 +58,7 @@ const DetailsPage = () => {
       <div className="flex flex-col lg:flex-row -mx-4">
         {/* Contenitore per le miniature */}
         <div className="flex flex-row">
-          <div className="flex flex-col mr-[1.3rem] transition transform duration-1000 ease-in-out">
+          <div className="flex flex-col mr-[1.3rem] transition-all duration-1000 ease-in-out">
             {visibleThumbnails.map((img, index) => {
               // Condizione per mostrare solo le prime 3 miniature su dispositivi mobili
               const showOnMobile = index < 3;
@@ -98,10 +71,8 @@ const DetailsPage = () => {
                   className={`mb-2 ${showOnMobile ? "block" : "hidden"} ${showFourthOnTabletUp} lg:mb-4`}
                 >
                   <button
-                    onClick={() => updateImageAndResetInterval(img.img, (visibleIndex + index) % totalThumbnails)}
-                    className={`w-16 h-16 sm:w-24 sm:h-24 rounded-lg bg-gray-100 flex items-center justify-center overflow-hidden ${
-                      image === img.img ? "ring-2 ring-indigo-300 ring-inset" : ""
-                    }`}
+                    onClick={() => updateImageAndResetInterval(img.img, visibleIndex + index)}
+                    className="w-16 h-16 sm:w-24 sm:h-24 rounded-lg bg-gray-100 flex items-center justify-center overflow-hidden"
                   >
                     <img src={img.img} alt={`Thumbnail ${index}`} className="object-cover rounded-lg" />
                   </button>
