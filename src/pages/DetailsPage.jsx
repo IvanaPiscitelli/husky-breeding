@@ -5,12 +5,20 @@ import { motion } from "framer-motion";
 
 const DetailsPage = () => {
   const [image, setImage] = useState(imgDetails[0].img); // This state holds the current main image
+  const [isAnimating, setIsAnimating] = useState(false); // State to control the start of the animation
 
   const navigate = useNavigate();
   const location = useLocation();
   const { dogId } = useParams();
 
-  const maxVisibleThumbnails = 4; // Maximum number of thumbnails visible at once
+  useEffect(() => {
+    // Set a timeout to start the animation after a certain delay
+    const timeoutId = setTimeout(() => {
+      setIsAnimating(true); // Start the animation
+    }, 2000); // Convert seconds to milliseconds
+
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   useEffect(() => {
     // Redirect logic when the component unmounts or the dogId changes
@@ -27,19 +35,22 @@ const DetailsPage = () => {
       <div className="flex flex-col lg:flex-row -mx-4">
         {/* Thumbnails container */}
         <div className="flex flex-row">
-          <div className="flex flex-col overflow-hidden" style={{ height: maxVisibleThumbnails * 112 }}>
+          <div className="flex flex-col overflow-hidden" style={{ height: 448 }}>
             {imgDetails.map((img, index) => {
               return (
                 <motion.div
                   key={img.id}
-                  animate={{ y: [0, -112, -224, -336, -448] }}
-                  transition={{ repeat: Infinity, type: "tween", duration: 6 }}
+                  animate={isAnimating ? { y: [0, -112, -224, -336, -448] } : {}}
+                  transition={{
+                    repeat: Infinity,
+                    type: "tween",
+                    duration: 10,
+                  }}
                   style={{ height: 112 }}
                 >
                   <button
                     onClick={() => {
                       setImage(img.img); // Update main image when thumbnail is clicked
-                      // setCurrentThumbnail(index);
                     }}
                     className="w-16 h-16 sm:w-24 sm:h-24 rounded-lg bg-gray-100 flex items-center justify-center overflow-hidden mx-2 mb-4"
                   >
