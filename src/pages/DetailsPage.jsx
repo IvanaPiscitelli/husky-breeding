@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { imgDetails } from "../utils/const";
 import { motion } from "framer-motion";
@@ -10,23 +10,7 @@ const DetailsPage = () => {
   const location = useLocation();
   const { dogId } = useParams();
 
-  const intervalRef = useRef(null); // Ref to store the interval ID
-
   const maxVisibleThumbnails = 4; // Maximum number of thumbnails visible at once
-  const scrollIntervalTime = 3500; // Interval time in milliseconds
-
-  // Function to restart the automatic sliding
-  const restartSliding = () => {
-    clearInterval(intervalRef.current);
-    intervalRef.current = setInterval(() => {
-      // Update the main image when the interval is triggered
-      setImage((prevImage) => {
-        const currentImageIndex = imgDetails.findIndex((img) => img.img === prevImage);
-        const nextImageIndex = currentImageIndex === imgDetails.length - 1 ? 0 : currentImageIndex + 1;
-        return imgDetails[nextImageIndex].img;
-      });
-    }, scrollIntervalTime);
-  };
 
   useEffect(() => {
     // Redirect logic when the component unmounts or the dogId changes
@@ -49,15 +33,13 @@ const DetailsPage = () => {
                 <motion.div
                   key={img.id}
                   animate={{ y: [0, -112, -224, -336, -448] }}
-                  transition={{
-                    y: { repeat: Infinity, repeatType: "loop", duration: 10, ease: "linear" },
-                    repeatDelay: (imgDetails.length - 1) * 2, // Wait for all thumbnails to animate
-                  }}
+                  transition={{ repeat: Infinity, type: "tween", duration: 6 }}
+                  style={{ height: 112 }}
                 >
                   <button
                     onClick={() => {
                       setImage(img.img); // Update main image when thumbnail is clicked
-                      restartSliding();
+                      // setCurrentThumbnail(index);
                     }}
                     className="w-16 h-16 sm:w-24 sm:h-24 rounded-lg bg-gray-100 flex items-center justify-center overflow-hidden mx-2 mb-4"
                   >
@@ -67,22 +49,8 @@ const DetailsPage = () => {
               );
             })}
             <div className="flex justify-between w-full">
-              <button
-                onClick={() => {
-                  restartSliding();
-                }}
-                className="absolute left-0 top-0"
-              >
-                &#8593; {/* Up arrow */}
-              </button>
-              <button
-                onClick={() => {
-                  restartSliding();
-                }}
-                className="absolute left-0 bottom-0"
-              >
-                &#8595; {/* Down arrow */}
-              </button>
+              <button className="absolute left-0 top-0">&#8593; {/* Up arrow */}</button>
+              <button className="absolute left-0 bottom-0">&#8595; {/* Down arrow */}</button>
             </div>
           </div>
           {/* Contenitore per l'immagine principale */}
