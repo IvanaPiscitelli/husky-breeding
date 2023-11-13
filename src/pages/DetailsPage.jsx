@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { imgDetails } from "../utils/const";
+import { motion } from "framer-motion";
 
 const DetailsPage = () => {
-  const [image, setImage] = useState(imgDetails[0].img);
-  const [visibleIndex, setVisibleIndex] = useState(0);
+  const [image, setImage] = useState(imgDetails[0].img); // This state holds the current main image
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -15,43 +15,18 @@ const DetailsPage = () => {
   const maxVisibleThumbnails = 4; // Maximum number of thumbnails visible at once
   const scrollIntervalTime = 3500; // Interval time in milliseconds
 
-  // Calculate the set of visible thumbnails
-  const visibleThumbnails = imgDetails
-    .slice(visibleIndex, visibleIndex + maxVisibleThumbnails)
-    .concat(imgDetails.slice(0, Math.max(0, visibleIndex + maxVisibleThumbnails - imgDetails.length)));
-
-  const moveThumbnails = (direction) => {
-    setVisibleIndex((prevIndex) => {
-      if (direction === "up") {
-        return (prevIndex - 1 + imgDetails.length) % imgDetails.length;
-      } else {
-        return (prevIndex + 1) % imgDetails.length;
-      }
-    });
-    restartSliding(); // Restart the automatic sliding after a manual change
-  };
-
-  // Function to rotate thumbnails automatically
-  const rotateThumbnails = () => {
-    setVisibleIndex((prevIndex) => (prevIndex + 1) % imgDetails.length);
-  };
-
   // Function to restart the automatic sliding
   const restartSliding = () => {
-    clearInterval(intervalRef.current); // Clear existing interval
-    intervalRef.current = setInterval(rotateThumbnails, scrollIntervalTime); // Set up a new interval
-  };
-
-  // Effect for auto-rotating thumbnails
-  useEffect(() => {
-    const interval = setInterval(() => {
-      moveThumbnails("down"); // Move down automatically
+    clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
+      // Update the main image when the interval is triggered
+      setImage((prevImage) => {
+        const currentImageIndex = imgDetails.findIndex((img) => img.img === prevImage);
+        const nextImageIndex = currentImageIndex === imgDetails.length - 1 ? 0 : currentImageIndex + 1;
+        return imgDetails[nextImageIndex].img;
+      });
     }, scrollIntervalTime);
-    intervalRef.current = interval; // Store the interval ID
-
-    return () => clearInterval(interval);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  };
 
   useEffect(() => {
     // Redirect logic when the component unmounts or the dogId changes
@@ -64,40 +39,51 @@ const DetailsPage = () => {
 
   return (
     <div className="container mx-auto py-32 px-12">
-      {/* Up Arrow */}
-      <button onClick={() => moveThumbnails("up")} className="ml-[0.65rem] md:ml-7 mb-2">
-        &#8593;
-      </button>
       {/* Contenitore principale con flex che avvolge tutto */}
       <div className="flex flex-col lg:flex-row -mx-4">
-        {/* Contenitore per le miniature */}
+        {/* Thumbnails container */}
         <div className="flex flex-row">
-          <div className="flex flex-col mr-[1.3rem] transition-transform duration-1000 ease-in-out">
-            {visibleThumbnails.map((img, index) => {
-              // Condizione per mostrare solo le prime 3 miniature su dispositivi mobili
-              const showOnMobile = index < 3;
-              // Condizione per mostrare la quarta miniatura solo su schermi più grandi (es. da tablet in su)
-              const showFourthOnTabletUp = index < 4 ? "md:block" : "md:hidden";
-
+          <div className="flex flex-col overflow-hidden" style={{ height: maxVisibleThumbnails * 112 }}>
+            {imgDetails.map((img, index) => {
               return (
-                <div
+                <motion.div
                   key={img.id}
-                  className={`mb-2 ${showOnMobile ? "block" : "hidden"} ${showFourthOnTabletUp} lg:mb-4`}
+                  animate={{ y: [0, -112, -224, -336, -448] }}
+                  transition={{
+                    y: { repeat: Infinity, repeatType: "loop", duration: 10, ease: "linear" },
+                    repeatDelay: (imgDetails.length - 1) * 2, // Wait for all thumbnails to animate
+                  }}
                 >
                   <button
-                    onClick={() => setImage(img.img)}
-                    className="w-16 h-16 sm:w-24 sm:h-24 rounded-lg bg-gray-100 flex items-center justify-center overflow-hidden"
+                    onClick={() => {
+                      setImage(img.img); // Update main image when thumbnail is clicked
+                      restartSliding();
+                    }}
+                    className="w-16 h-16 sm:w-24 sm:h-24 rounded-lg bg-gray-100 flex items-center justify-center overflow-hidden mx-2 mb-4"
                   >
                     <img src={img.img} alt={`Thumbnail ${index}`} className="object-cover rounded-lg" />
                   </button>
-                </div>
+                </motion.div>
               );
             })}
-
-            {/* Down Arrow */}
-            <button onClick={() => moveThumbnails("down")} className="self-center mr-[0.05rem] md:mr-1">
-              &#8595;
-            </button>
+            <div className="flex justify-between w-full">
+              <button
+                onClick={() => {
+                  restartSliding();
+                }}
+                className="absolute left-0 top-0"
+              >
+                &#8593; {/* Up arrow */}
+              </button>
+              <button
+                onClick={() => {
+                  restartSliding();
+                }}
+                className="absolute left-0 bottom-0"
+              >
+                &#8595; {/* Down arrow */}
+              </button>
+            </div>
           </div>
           {/* Contenitore per l'immagine principale */}
           <div className="flex-1">
