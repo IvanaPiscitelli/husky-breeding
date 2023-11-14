@@ -35,34 +35,34 @@ const DetailsPage = () => {
       <div className="flex flex-col lg:flex-row -mx-4">
         {/* Thumbnails container */}
         <div className="flex flex-row">
-          <div className="flex flex-col overflow-hidden" style={{ height: 448 }}>
-            {imgDetails.map((img, index) => {
-              return (
-                <motion.div
-                  key={img.id}
-                  animate={isAnimating ? { y: [0, -112, -224, -336, -448] } : {}}
-                  transition={{
-                    repeat: Infinity,
-                    type: "tween",
-                    duration: 10,
-                  }}
-                  style={{ height: 112 }}
-                >
-                  <button
-                    onClick={() => {
-                      setImage(img.img); // Update main image when thumbnail is clicked
+          <div className="flex flex-col">
+            <button>&#8593; {/* Up arrow */}</button>
+            <div className="flex flex-col overflow-hidden" style={{ height: 448 }}>
+              {imgDetails.map((img, index) => {
+                return (
+                  <motion.div
+                    key={img.id}
+                    animate={isAnimating ? { y: [0, -112, -224, -336, -448] } : {}}
+                    transition={{
+                      repeat: Infinity,
+                      type: "tween",
+                      duration: 10,
                     }}
-                    className="w-16 h-16 sm:w-24 sm:h-24 rounded-lg bg-gray-100 flex items-center justify-center overflow-hidden mx-2 mb-4"
+                    style={{ height: 112 }}
                   >
-                    <img src={img.img} alt={`Thumbnail ${index}`} className="object-cover rounded-lg" />
-                  </button>
-                </motion.div>
-              );
-            })}
-            <div className="flex justify-between w-full">
-              <button className="absolute left-0 top-0">&#8593; {/* Up arrow */}</button>
-              <button className="absolute left-0 bottom-0">&#8595; {/* Down arrow */}</button>
+                    <button
+                      onClick={() => {
+                        setImage(img.img);
+                      }}
+                      className="w-16 h-16 sm:w-24 sm:h-24 rounded-lg bg-gray-100 flex items-center justify-center overflow-hidden mx-2 mb-4"
+                    >
+                      <img src={img.img} alt={`Thumbnail ${index}`} className="object-cover rounded-lg" />
+                    </button>
+                  </motion.div>
+                );
+              })}
             </div>
+            <button>&#8595; {/* Down arrow */}</button>
           </div>
           {/* Contenitore per l'immagine principale */}
           <div className="flex-1">
