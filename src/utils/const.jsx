@@ -23,13 +23,6 @@ export const imgDetails = [
   },
   { id: 3, img: thirdImgDetails },
   { id: 4, img: forthImgDetails },
-  { id: 5, img: firstImgDetails },
-  {
-    id: 6,
-    img: secondImgDetails,
-  },
-  { id: 7, img: thirdImgDetails },
-  { id: 8, img: forthImgDetails },
 ];
 
 export const imgCard = [
